@@ -9,7 +9,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/', router)
-// app.use(express.static('build'))
+app.use(express.static('build'))
 
 //Should probably move this to its own module
 let contactEmail = nodemailer.createTransport({
