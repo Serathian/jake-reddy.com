@@ -29,7 +29,7 @@ contactEmail.verify((error, success) => {
   }
 })
 
-app.post('/contact', async (req, res) => {
+app.post('api/contact', async (req, res) => {
   console.log('/contact called!', req.body)
   //Verify Human
   const captchaKey = req.body.captchaKey
