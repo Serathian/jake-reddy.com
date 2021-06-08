@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build:ui": "rm -rf build && cd '../jakereddy-website' && npm run build --prod && cp -r build ../jakereddy-backend/",
+    "deploy": "git push orgin master",
+    "build:deploy": "npm run build:ui && git add -A && git commit -m uibuild && npm run deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jake Reddy",
