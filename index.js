@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/', router)
 app.use('/api/contact', contactRouter)
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static('build'))
 
 //Should probably move this to its own module
 
@@ -20,7 +20,7 @@ app.get('/api/test', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/build/index.html'))
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
 const PORT = process.env.PORT || 3002
