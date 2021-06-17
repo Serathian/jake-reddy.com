@@ -1,7 +1,7 @@
 {
   "name": "jakereddy-backend",
   "version": "1.0.0",
-  "description": "backend for jackreddy.com",
+  "description": "backend for jake-reddy.com",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
