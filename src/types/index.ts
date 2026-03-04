@@ -1,5 +1,5 @@
-// These interfaces mirror the shape that Payload CMS will eventually return.
-// Swapping src/data/* imports for fetch() calls will be the only migration needed.
+// Local UI types — no direct Payload CMS equivalent.
+// These model the frontend data layer until a CMS-backed profile/experience API exists.
 
 export interface Profile {
   name: string
@@ -25,3 +25,7 @@ export interface SkillGroup {
   category: SkillCategory
   skills: string[]
 }
+
+// CMS types sourced from the shared Payload-generated package.
+// JrPost and JrProject are the jr_ collections in basecamp-cms.
+export type { JrPost, JrProject, Author, Tag, Media } from '@serathian/basecamp-cms-types'
