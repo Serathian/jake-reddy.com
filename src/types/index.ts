@@ -28,4 +28,4 @@ export interface SkillGroup {
 
 // CMS types sourced from the shared Payload-generated package.
 // JrPost and JrProject are the jr_ collections in basecamp-cms.
-export type { JrPost, JrProject, Author, Tag, Media } from '@serathian/basecamp-cms-types'
+export type { JrPost, JrProject, Author, Tag, Media } from '@basecamp-cms/basecamp-cms-types'
