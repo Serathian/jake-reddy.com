@@ -119,13 +119,56 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be populated by roadmapper) | | |
+| CONT-01 | Phase 5 | Pending |
+| CONT-02 | Phase 5 | Pending |
+| CONT-03 | Phase 5 | Pending |
+| CONT-04 | Phase 5 | Pending |
+| CONT-05 | Phase 5 | Pending |
+| DSGN-01 | Phase 3 | Pending |
+| DSGN-02 | Phase 3 | Pending |
+| DSGN-03 | Phase 3 | Pending |
+| DSGN-04 | Phase 3 | Pending |
+| DSGN-05 | Phase 3 | Pending |
+| DSGN-06 | Phase 3 | Pending |
+| NAV-01 | Phase 4 | Pending |
+| NAV-02 | Phase 4 | Pending |
+| NAV-03 | Phase 5 | Pending |
+| NAV-04 | Phase 5 | Pending |
+| NAV-05 | Phase 5 | Pending |
+| INFR-01 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Pending |
+| INFR-04 | Phase 1 | Pending |
+| INFR-05 | Phase 1 | Pending |
+| INFR-06 | Phase 1 | Pending |
+| CICD-01 | Phase 2 | Pending |
+| CICD-02 | Phase 2 | Pending |
+| CICD-03 | Phase 2 | Pending |
+| CICD-04 | Phase 2 | Pending |
+| CICD-05 | Phase 2 | Pending |
+| CICD-06 | Phase 2 | Pending |
+| CICD-07 | Phase 2 | Pending |
+| TEST-01 | Phase 1 | Pending |
+| TEST-02 | Phase 5 | Pending |
+| TEST-03 | Phase 2 | Pending |
+| QUAL-01 | Phase 1 | Pending |
+| QUAL-02 | Phase 1 | Pending |
+| QUAL-03 | Phase 1 | Pending |
+| QUAL-04 | Phase 1 | Pending |
+| QUAL-05 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 34 total
-- Mapped to phases: 0 (pending roadmap creation)
-- Unmapped: 34 ⚠️
+- v1 requirements: 37 total
+- Mapped to phases: 37 ✓
+- Unmapped: 0 ✓
+
+**Phase Distribution:**
+- Phase 1 (Foundation & Infrastructure): 12 requirements
+- Phase 2 (CI/CD Pipeline): 8 requirements
+- Phase 3 (Design System Implementation): 6 requirements
+- Phase 4 (Layout & Navigation): 2 requirements
+- Phase 5 (Core Content Pages): 9 requirements
 
 ---
 *Requirements defined: 2026-03-12*
-*Last updated: 2026-03-12 after initial definition*
+*Last updated: 2026-03-12 after roadmap creation*
