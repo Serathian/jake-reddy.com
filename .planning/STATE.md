@@ -1,7 +1,21 @@
+---
+gsd_state_version: 1.0
+milestone: v0.1
+milestone_name: milestone
+status: executing
+last_updated: "2026-03-12T19:35:42.889Z"
+progress:
+  total_phases: 5
+  completed_phases: 0
+  total_plans: 4
+  completed_plans: 2
+  percent: 50
+---
+
 # Project State: jake-reddy.com
 
 **Last Updated:** 2026-03-12
-**Status:** Phase 1 in progress - Plan 01-01 complete
+**Status:** Phase 1 in progress - Plan 01-02 complete
 
 ## Project Reference
 
@@ -12,17 +26,17 @@
 ## Current Position
 
 **Phase:** 1 of 5 (Foundation & Infrastructure)
-**Plan:** 1 of 4 (01-01: Astro Initialization - COMPLETE)
-**Task:** Ready for Plan 01-02 (Development Tooling)
-**Status:** Plan 01-01 complete, continuing Phase 1
+**Plan:** 2 of 4 (01-02: Development Tooling Configuration - COMPLETE)
+**Task:** Ready for Plan 01-03 (Docker Containerization)
+**Status:** Plan 01-01 and 01-02 complete, continuing Phase 1
 
-**Progress:** `▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱` 5% (1/20 estimated plans across 5 phases)
+**Progress:** [█████░░░░░] 50%
 
 ## Phase Overview
 
 | Phase | Status | Plans | Completed |
 |-------|--------|-------|-----------|
-| 1. Foundation & Infrastructure | In progress | 1/4 | - |
+| 1. Foundation & Infrastructure | In progress | 2/4 | - |
 | 2. CI/CD Pipeline | Not started | 0/TBD | - |
 | 3. Design System Implementation | Not started | 0/TBD | - |
 | 4. Layout & Navigation | Not started | 0/TBD | - |
@@ -33,10 +47,11 @@
 | Metric | Phase 1 | Project Average |
 |--------|---------|-----------------|
 | Plan 01-01 | 6 min, 2 tasks, 9 files | - |
+| Plan 01-02 | 16 min, 5 tasks, 5 files | - |
 
-**Project velocity:** 1 plan complete (6 min average)
+**Project velocity:** 2 plans complete (11 min average)
 **Average phase duration:** Phase 1 in progress
-**Plan success rate:** 100% (1/1 plans completed without major issues)
+**Plan success rate:** 100% (2/2 plans completed without major issues)
 **Rework frequency:** 0 (no plans required rework)
 
 ## Accumulated Context
@@ -51,6 +66,9 @@
 6. **Deferred v2 features** — CV page, projects showcase, blog (focus on Home and About first)
 7. **Initialize Astro in temp directory workaround** — (Plan 01-01) CLI won't initialize into non-empty directory; moved files after creation
 8. **Manual installation of @astrojs/check** — (Plan 01-01) TypeScript checking requires explicit devDependency installation
+9. **Use plain Vitest defineConfig instead of Astro's getViteConfig** — (Plan 01-02) getViteConfig caused SSR initialization errors; plain config works for unit tests
+10. **Allow triple-slash-reference in src/env.d.ts** — (Plan 01-02) Required by Astro framework for type generation
+11. **Exclude planning and tooling directories from Prettier** — (Plan 01-02) Special markdown syntax in .planning/ and .opencode/ would be corrupted
 
 ### Active Todos
 

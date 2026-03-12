@@ -35,11 +35,11 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Infrastructure
 
 - [x] **INFR-01**: Astro project configured with TypeScript
-- [ ] **INFR-02**: Docker multi-stage build (Node.js build + Nginx runtime)
-- [ ] **INFR-03**: Dockerfile includes proper .dockerignore configuration
-- [ ] **INFR-04**: Docker image runs as non-root user
-- [ ] **INFR-05**: Nginx configured with try_files for static routing
-- [ ] **INFR-06**: Health check endpoint configured
+- [x] **INFR-02**: Docker multi-stage build (Node.js build + Nginx runtime)
+- [x] **INFR-03**: Dockerfile includes proper .dockerignore configuration
+- [x] **INFR-04**: Docker image runs as non-root user
+- [x] **INFR-05**: Nginx configured with try_files for static routing
+- [x] **INFR-06**: Health check endpoint configured
 
 ### CI/CD
 
@@ -63,7 +63,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **QUAL-02**: Prettier configured for code formatting
 - [x] **QUAL-03**: No TypeScript errors in build
 - [ ] **QUAL-04**: Production build completes successfully
-- [ ] **QUAL-05**: Docker image builds without errors
+- [x] **QUAL-05**: Docker image builds without errors
 
 ## v2 Requirements
 
@@ -136,11 +136,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAV-04 | Phase 5 | Pending |
 | NAV-05 | Phase 5 | Pending |
 | INFR-01 | Phase 1 | Complete (Plan 01-01) |
-| INFR-02 | Phase 1 | Pending |
-| INFR-03 | Phase 1 | Pending |
-| INFR-04 | Phase 1 | Pending |
-| INFR-05 | Phase 1 | Pending |
-| INFR-06 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Complete |
+| INFR-03 | Phase 1 | Complete |
+| INFR-04 | Phase 1 | Complete |
+| INFR-05 | Phase 1 | Complete |
+| INFR-06 | Phase 1 | Complete |
 | CICD-01 | Phase 2 | Pending |
 | CICD-02 | Phase 2 | Pending |
 | CICD-03 | Phase 2 | Pending |
@@ -155,7 +155,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | QUAL-02 | Phase 1 | Pending |
 | QUAL-03 | Phase 1 | Complete (Plan 01-01) |
 | QUAL-04 | Phase 1 | Pending |
-| QUAL-05 | Phase 1 | Pending |
+| QUAL-05 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 37 total
