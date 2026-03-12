@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+dist
+.git
+.gitignore
+.env
+.env.*
+README.md
+.vscode
+.idea
+.planning
+.opencode
+design-system
+.github
