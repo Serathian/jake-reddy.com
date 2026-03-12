@@ -34,7 +34,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFR-01**: Astro project configured with TypeScript
+- [x] **INFR-01**: Astro project configured with TypeScript
 - [ ] **INFR-02**: Docker multi-stage build (Node.js build + Nginx runtime)
 - [ ] **INFR-03**: Dockerfile includes proper .dockerignore configuration
 - [ ] **INFR-04**: Docker image runs as non-root user
@@ -61,7 +61,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **QUAL-01**: ESLint configured and passing
 - [ ] **QUAL-02**: Prettier configured for code formatting
-- [ ] **QUAL-03**: No TypeScript errors in build
+- [x] **QUAL-03**: No TypeScript errors in build
 - [ ] **QUAL-04**: Production build completes successfully
 - [ ] **QUAL-05**: Docker image builds without errors
 
@@ -135,7 +135,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAV-03 | Phase 5 | Pending |
 | NAV-04 | Phase 5 | Pending |
 | NAV-05 | Phase 5 | Pending |
-| INFR-01 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete (Plan 01-01) |
 | INFR-02 | Phase 1 | Pending |
 | INFR-03 | Phase 1 | Pending |
 | INFR-04 | Phase 1 | Pending |
@@ -153,7 +153,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-03 | Phase 2 | Pending |
 | QUAL-01 | Phase 1 | Pending |
 | QUAL-02 | Phase 1 | Pending |
-| QUAL-03 | Phase 1 | Pending |
+| QUAL-03 | Phase 1 | Complete (Plan 01-01) |
 | QUAL-04 | Phase 1 | Pending |
 | QUAL-05 | Phase 1 | Pending |
 
