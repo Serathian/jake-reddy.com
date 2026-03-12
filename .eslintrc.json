@@ -17,7 +17,10 @@
   "rules": {
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/triple-slash-reference": ["error", { "path": "never", "types": "prefer-import", "lib": "never" }]
+    "@typescript-eslint/triple-slash-reference": [
+      "error",
+      { "path": "never", "types": "prefer-import", "lib": "never" }
+    ]
   },
   "overrides": [
     {
