@@ -26,12 +26,19 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/dist /usr/share/nginx/html/
 
 # Security: Run as non-root user (INFR-04)
+# Create nginx cache directories and set permissions before switching user
+RUN mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp \
+    /var/cache/nginx/fastcgi_temp /var/cache/nginx/uwsgi_temp \
+    /var/cache/nginx/scgi_temp && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chmod -R 755 /var/cache/nginx
+
 # nginx:alpine includes nginx user by default
 USER nginx
 
 # Health check (INFR-06)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
-  CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1/ || exit 1
 
 # Expose port 80
 EXPOSE 80
