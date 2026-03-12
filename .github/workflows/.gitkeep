@@ -1,0 +1,5 @@
+# Placeholder for CI/CD workflows
+# Phase 2 will add:
+# - quality-checks.yml (linting, type checking, tests)
+# - docker-publish.yml (build and push Docker image on tags)
+# - release.yml (create GitHub releases from tags)
