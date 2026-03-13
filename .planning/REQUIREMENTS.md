@@ -62,7 +62,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **QUAL-01**: ESLint configured and passing
 - [x] **QUAL-02**: Prettier configured for code formatting
 - [x] **QUAL-03**: No TypeScript errors in build
-- [ ] **QUAL-04**: Production build completes successfully
+- [x] **QUAL-04**: Production build completes successfully
 - [x] **QUAL-05**: Docker image builds without errors
 
 ## v2 Requirements
@@ -154,7 +154,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | QUAL-01 | Phase 1 | Complete (Plan 01-02) |
 | QUAL-02 | Phase 1 | Complete (Plan 01-02) |
 | QUAL-03 | Phase 1 | Complete (Plan 01-01) |
-| QUAL-04 | Phase 1 | Pending |
+| QUAL-04 | Phase 1 | Complete |
 | QUAL-05 | Phase 1 | Complete |
 
 **Coverage:**
