@@ -79,7 +79,12 @@ Plans:
   5. Contrast ratios meet WCAG AAA standards (7:1 for normal text)
   6. Borders are crisp (1-2px solid) with minimal or no shadows
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Tailwind 4 setup with Nordic design tokens (colors, spacing, borders, shadows)
+- [ ] 03-02-PLAN.md — Font system with Astro Fonts API (JetBrains Mono, IBM Plex Sans)
+- [ ] 03-03-PLAN.md — Base layout, example component, and visual verification
 
 ---
 
