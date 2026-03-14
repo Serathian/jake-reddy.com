@@ -56,7 +56,11 @@ Plans:
   4. Docker image is pushed to GitHub Container Registry with correct tag
   5. GitHub release is created automatically from tag with release notes
 
-**Plans:** TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Expand CI workflow with complete quality checks
+- [ ] 02-02-PLAN.md — Create release workflow for Docker publishing and GitHub releases
 
 ---
 
