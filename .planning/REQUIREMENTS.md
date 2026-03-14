@@ -43,19 +43,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### CI/CD
 
-- [ ] **CICD-01**: GitHub Actions workflow for linting
-- [ ] **CICD-02**: GitHub Actions workflow for TypeScript type checking
-- [ ] **CICD-03**: GitHub Actions workflow for running tests
-- [ ] **CICD-04**: GitHub Actions builds Docker image on tag creation
-- [ ] **CICD-05**: GitHub Actions pushes Docker image to GitHub Container Registry
-- [ ] **CICD-06**: GitHub Actions has correct permissions (packages: write)
-- [ ] **CICD-07**: GitHub release created automatically from tags
+- [x] **CICD-01**: GitHub Actions workflow for linting
+- [x] **CICD-02**: GitHub Actions workflow for TypeScript type checking
+- [x] **CICD-03**: GitHub Actions workflow for running tests
+- [x] **CICD-04**: GitHub Actions builds Docker image on tag creation
+- [x] **CICD-05**: GitHub Actions pushes Docker image to GitHub Container Registry
+- [x] **CICD-06**: GitHub Actions has correct permissions (packages: write)
+- [x] **CICD-07**: GitHub release created automatically from tags
 
 ### Testing
 
 - [x] **TEST-01**: Vitest configured for unit tests
 - [ ] **TEST-02**: Test coverage for critical components
-- [ ] **TEST-03**: Tests run in CI pipeline
+- [x] **TEST-03**: Tests run in CI pipeline
 
 ### Quality
 
@@ -141,16 +141,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFR-04 | Phase 1 | Complete |
 | INFR-05 | Phase 1 | Complete |
 | INFR-06 | Phase 1 | Complete |
-| CICD-01 | Phase 2 | Pending |
-| CICD-02 | Phase 2 | Pending |
-| CICD-03 | Phase 2 | Pending |
-| CICD-04 | Phase 2 | Pending |
-| CICD-05 | Phase 2 | Pending |
-| CICD-06 | Phase 2 | Pending |
-| CICD-07 | Phase 2 | Pending |
+| CICD-01 | Phase 2 | Complete |
+| CICD-02 | Phase 2 | Complete |
+| CICD-03 | Phase 2 | Complete |
+| CICD-04 | Phase 2 | Complete |
+| CICD-05 | Phase 2 | Complete |
+| CICD-06 | Phase 2 | Complete |
+| CICD-07 | Phase 2 | Complete |
 | TEST-01 | Phase 1 | Complete (Plan 01-02) |
 | TEST-02 | Phase 5 | Pending |
-| TEST-03 | Phase 2 | Pending |
+| TEST-03 | Phase 2 | Complete |
 | QUAL-01 | Phase 1 | Complete (Plan 01-02) |
 | QUAL-02 | Phase 1 | Complete (Plan 01-02) |
 | QUAL-03 | Phase 1 | Complete (Plan 01-01) |
