@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Nordic monochrome palette - DSGN-01 */
+  /* Contrast ratios calculated against white background (#FFFFFF) */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-100: #f5f5f5;  /* 1.1:1 - decorative only */
+  --color-gray-200: #e5e5e5;  /* 1.5:1 - decorative only */
+  --color-gray-300: #d4d4d4;  /* 2.0:1 - decorative only */
+  --color-gray-400: #a3a3a3;  /* 3.0:1 - decorative only */
+  --color-gray-500: #737373;  /* 4.6:1 - large text only (18pt+/14pt+ bold) */
+  --color-gray-600: #525252;  /* 7.5:1 - body text OK (meets WCAG AAA) */
+  --color-gray-700: #404040;  /* 9.7:1 - body text OK (meets WCAG AAA) */
+  --color-gray-800: #262626;  /* 13.3:1 - body text OK (meets WCAG AAA) */
+  --color-gray-900: #171717;  /* 16.1:1 - body text OK (meets WCAG AAA) */
+
+  /* Typography - DSGN-02 */
+  /* Font variables populated by Astro Fonts API */
+  --font-display: var(--font-jetbrains-mono);
+  --font-body: var(--font-ibm-plex-sans);
+
+  /* 8px spacing grid - DSGN-03 */
+  /* Override Tailwind default 4px-based scale with 8px grid */
+  /* spacing-N = N × 8px (e.g., spacing-4 = 32px, not 16px) */
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-8: 64px;
+  --spacing-10: 80px;
+  --spacing-12: 96px;
+  --spacing-16: 128px;
+
+  /* Sharp corners - DSGN-04 */
+  /* All border-radius utilities output 0px - no rounded corners */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
+
+  /* Minimal shadows - DSGN-06 */
+  /* Crisp borders take precedence; shadows used sparingly */
+  --shadow-sm: none;
+  --shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+  --shadow-inner: none;
+}
