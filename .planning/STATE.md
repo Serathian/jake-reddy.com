@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v0.1
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-15T06:44:28.169Z"
+last_updated: "2026-03-15T08:04:49.589Z"
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 11
-  completed_plans: 11
-  percent: 100
+  total_plans: 15
+  completed_plans: 12
+  percent: 80
 ---
 
 # Project State: jake-reddy.com
@@ -25,12 +25,12 @@ progress:
 
 ## Current Position
 
-**Phase:** 5 of 5 (Core Content Pages) - Not started
-**Plan:** 0 of TBD complete
-**Task:** Phase 4 complete — About stub, navigation verified, all plans done
-**Status:** Phase 4 complete; ready for Phase 5
+**Phase:** 5 of 5 (Core Content Pages) - In progress
+**Plan:** 1 of TBD complete
+**Task:** Plan 05-01 complete — Home page (Hero + Highlights), Wave 0 test scaffold
+**Status:** Phase 5 in progress; Plan 05-01 done
 
-**Progress:** [██████████] 100%
+**Progress:** [████████░░] 80%
 
 ## Phase Overview
 
@@ -40,7 +40,7 @@ progress:
 | 2. CI/CD Pipeline | Complete ✅ | 2/2 | 2026-03-14 |
 | 3. Design System Implementation | Complete ✅ | 3/3 | 2026-03-15 |
 | 4. Layout & Navigation | Complete ✅ | 2/2 | 2026-03-15 |
-| 5. Core Content Pages | Not started | 0/TBD | - |
+| 5. Core Content Pages | In progress | 1/TBD | - |
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ progress:
 **Plan success rate:** 100% (11/11 plans completed without major issues)
 **Rework frequency:** 0 (no plans required rework)
 | Phase 04-layout-and-navigation P02 | 5min | 2 tasks | 1 files |
+| Phase 05-core-content-pages P01 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -88,10 +89,14 @@ progress:
 22. **getNavState() defined inline in test file** — (Plan 04-01) Vitest node env cannot import Astro component files; logic mirrored verbatim in Header.astro
 23. **About page content deferred to Phase 5** — (Plan 04-02) Stub only needed to satisfy NAV-02 (/about route exists); content belongs in Phase 5
 24. **Human checkpoint for fixed-position visual verification** — (Plan 04-02) Fixed-position CSS cannot be confirmed by automated build; checkpoint used to validate scrolling behavior
+25. **Mirror-logic pattern for page content data tests** — (Plan 05-01) Content data helpers defined inline in test files so Vitest node environment avoids importing .astro files
+26. **max-w-[1200px] directly on sections, not wrapping main** — (Plan 05-01) BaseLayout body already provides flex-col pt-[72px]; extra main wrapper would break layout
+27. **border-[#E5E5E5] explicit hex over Tailwind gray-200** — (Plan 05-01) Keeps color tied to design system token --color-border, not Tailwind's approximation
 
 ### Active Todos
 
-- [ ] Execute Phase 5: Core Content Pages (next)
+- [ ] Execute Phase 5 Plan 05-02: About page content (next)
+- [x] Execute Phase 5 Plan 05-01: Home page Hero + Highlights (complete)
 - [x] Execute Plan 04-02: Layout & Navigation (complete)
 - [x] Execute Plan 04-01: Header, Footer, BaseLayout (complete)
 - [x] Complete Phase 3: Design System Implementation (complete)
@@ -132,15 +137,15 @@ None currently. All requirements defined, research complete, roadmap approved.
 
 ### What Just Happened
 
-**Phase 4 completed** (2026-03-15):
-- Plan 04-01: Header.astro (fixed, active-link detection), Footer.astro, BaseLayout.astro wiring, 6 unit tests
-- Plan 04-02: About page stub at /about, human verification of complete navigation system (all 10 checks passed)
-- NAV-01 and NAV-02 requirements fully satisfied
-- Build, tests, and visual verification all pass
+**Phase 5 Plan 05-01 completed** (2026-03-15):
+- Plan 05-01: Home page at / with Hero (name, role, tagline) and Highlights (4-item 2-col responsive grid)
+- Wave 0 test scaffold: highlights.test.ts and footer-links.test.ts using mirror-logic pattern
+- CONT-01, CONT-02, TEST-02 requirements satisfied
+- Build, tests (20 pass), and astro check all green
 
 ### What's Next
 
-**Immediate:** Begin Phase 5 (Core Content Pages)
+**Immediate:** Execute Phase 5 Plan 05-02 (About page content)
 
 **Prerequisites satisfied:**
 - ✅ About page stub at /about ready for real content

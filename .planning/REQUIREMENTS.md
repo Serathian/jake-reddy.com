@@ -9,8 +9,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content
 
-- [ ] **CONT-01**: Home page displays professional introduction (name, role, tagline)
-- [ ] **CONT-02**: Home page includes brief professional highlights
+- [x] **CONT-01**: Home page displays professional introduction (name, role, tagline)
+- [x] **CONT-02**: Home page includes brief professional highlights
 - [ ] **CONT-03**: About page displays background and professional philosophy
 - [ ] **CONT-04**: About page includes Nordic lifestyle context
 - [ ] **CONT-05**: Contact information visible (email, GitHub, LinkedIn links)
@@ -54,7 +54,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Testing
 
 - [x] **TEST-01**: Vitest configured for unit tests
-- [ ] **TEST-02**: Test coverage for critical components
+- [x] **TEST-02**: Test coverage for critical components
 - [x] **TEST-03**: Tests run in CI pipeline
 
 ### Quality
@@ -119,8 +119,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONT-01 | Phase 5 | Pending |
-| CONT-02 | Phase 5 | Pending |
+| CONT-01 | Phase 5 | Complete |
+| CONT-02 | Phase 5 | Complete |
 | CONT-03 | Phase 5 | Pending |
 | CONT-04 | Phase 5 | Pending |
 | CONT-05 | Phase 5 | Pending |
@@ -149,7 +149,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CICD-06 | Phase 2 | Complete |
 | CICD-07 | Phase 2 | Complete |
 | TEST-01 | Phase 1 | Complete (Plan 01-02) |
-| TEST-02 | Phase 5 | Pending |
+| TEST-02 | Phase 5 | Complete |
 | TEST-03 | Phase 2 | Complete |
 | QUAL-01 | Phase 1 | Complete (Plan 01-02) |
 | QUAL-02 | Phase 1 | Complete (Plan 01-02) |
