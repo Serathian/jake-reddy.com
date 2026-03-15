@@ -1,365 +1,298 @@
 # Stack Research
 
-**Domain:** Personal Developer Portfolio Website
-**Researched:** 2026-03-12
+**Domain:** Portfolio v1.0 enhancement — CV, Projects, Performance, Animations, Images
+**Researched:** 2026-03-15
 **Confidence:** HIGH
 
-## Recommended Stack
+## Executive Summary
 
-### Core Technologies
+For v1.0 milestone features (CV page, Projects showcase, performance optimization, animations, image optimization), **Astro 6.0.4's built-in capabilities handle nearly everything without additional dependencies**. The existing stack already includes the necessary tools; the focus should be on leveraging Astro's native features rather than adding external libraries.
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Astro | ^6.0.4 | Static site generator | Optimal for content-focused sites with minimal JS, fast builds, excellent DX. Astro 6 is current stable (March 2026). Industry standard for portfolio sites. |
-| Node.js | >=22.12.0 | Runtime environment | Required by Astro 6. LTS version ensures stability and security patches. |
-| TypeScript | ^5.x | Type safety | Built into Astro, provides excellent DX and catches errors at build time. No configuration needed with Astro 6's new defaults. |
-| Vite | (bundled) | Build tool | Bundled with Astro, provides fast HMR, optimized builds, and modern asset handling. No separate installation needed. |
+**Key findings:**
+- Markdown rendering: Built-in (no additional package needed)
+- Image optimization: Built-in `astro:assets` module (no additional package needed)
+- Performance: Built-in optimization tools + Lighthouse CI for validation
+- Animations: Built-in `astro:transitions` module for subtle, purposeful animations
+- No CMS integration required for v1.0 (mocked markdown content in content collections)
 
-### Styling
+## Stack Additions NOT Needed
 
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| Plain CSS | (native) | Component styling | Default recommendation for portfolio sites. Astro's scoped styles prevent conflicts, no build configuration needed. |
-| CSS Variables | (native) | Design tokens | Native browser support, perfect for design systems like Nordic minimalism. Pass variables via `define:vars` directive. |
-| Sass/SCSS | ^1.x (optional) | CSS preprocessor | Only if you need nesting/mixins. Simple `npm install sass` + `<style lang="scss">`. Not necessary for this project. |
+### What's Already Built Into Astro 6.0.4
 
-**Rationale for skipping Tailwind:** The project uses a pre-defined Nordic design system with custom design tokens (8px grid, specific typography, exact colors). Plain CSS with variables gives full control without Tailwind's utility class overhead. Tailwind 4 is available via `@tailwindcss/vite` but unnecessary for this use case.
+| Built-in Feature | Purpose | Why No Addition Needed |
+|------------------|---------|------------------------|
+| Markdown rendering | Projects markdown content | Astro includes remark + rehype processors by default with GitHub-flavored markdown |
+| `<Image />` component | Image optimization | Built-in component from `astro:assets` handles optimization, format conversion, responsive sizing |
+| View transitions | Subtle animations | Built-in `<ClientRouter />` component with `transition:*` directives, respects `prefers-reduced-motion` |
+| Sharp image processor | Image transformation | Bundled with Astro, no manual installation needed |
+| Content collections | Projects showcase data | Built-in type-safe content management with Zod schemas |
 
-### Docker & Deployment
+## Stack Additions Required
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Docker | latest | Containerization | Industry standard, required per project constraints. Astro official recipe available. |
-| Nginx | alpine | Web server | Lightweight (5-10MB base image), proven for static files, official Astro Docker recipe uses it. |
-| Multi-stage build | (pattern) | Optimization | Reduces final image size by 60-70%, separates build/runtime dependencies. Official Astro pattern. |
+### Development Tools Only
 
-### CI/CD
+| Tool | Version | Purpose | When to Use |
+|------|---------|---------|-------------|
+| `@lhci/cli` | `^0.14.0` | Lighthouse CI for performance validation | CI/CD pipeline to enforce Lighthouse 90+ requirement |
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| GitHub Actions | (native) | CI/CD pipeline | Already integrated with GitHub, no additional service needed. Free for public repos, excellent Astro support. |
-| GitHub Container Registry | (native) | Docker registry | ghcr.io integrated with GitHub, no external service, automatic auth, free for public repos. |
-
-### Testing
-
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| Vitest | ^2.x | Unit/integration tests | Vite-native, fast, official Astro recommendation. Use `getViteConfig()` helper for zero-config setup. |
-| Playwright | ^1.x | E2E tests | Cross-browser testing, official Astro docs recommend. Mature, Microsoft-backed, excellent DX. |
-| @astrojs/check | (bundled) | Type checking | Built into Astro CLI, runs TypeScript checks without separate tsc. Use in CI. |
-
-### Development Tools
-
-| Tool | Purpose | Notes |
-|------|---------|-------|
-| ESLint | Linting | Optional but recommended. Use `eslint-plugin-astro` for Astro-specific rules. |
-| Prettier | Code formatting | Optional. Use `prettier-plugin-astro` if needed. Astro has opinions on formatting. |
-| astro-imagetools | Image optimization | Consider if adding images beyond basic Sharp processing. |
-
-## Installation
+### Installation
 
 ```bash
-# Core - Initialize Astro project
-npm create astro@latest
-
-# Testing (if needed)
-npm install -D vitest @vitest/ui
-npm install -D @playwright/test
-
-# Docker - No installation needed, use Dockerfile
-
-# CI/CD - GitHub Actions configured via .github/workflows/*.yml
+# Lighthouse CI for performance validation (dev dependency only)
+npm install -D @lhci/cli
 ```
 
-## Alternatives Considered
+## Implementation Approach by Feature
 
-| Recommended | Alternative | When to Use Alternative |
-|-------------|-------------|-------------------------|
-| Astro | Next.js | Need heavy client-side interactivity, React ecosystem required, or hybrid SSR/SSG patterns. Overkill for portfolio. |
-| Astro | Gatsby | Never. Gatsby is effectively deprecated (2023), community has moved to Astro/Next. |
-| Vitest | Jest | Using older projects with Jest infrastructure. Vitest is faster, better Vite integration, similar API. |
-| Playwright | Cypress | Preference for Cypress API or existing Cypress infrastructure. Playwright is faster, better cross-browser. |
-| Nginx | Apache | Need .htaccess or specific Apache modules. Nginx is lighter and faster for static files. |
-| Plain CSS | Tailwind | Building multiple sites with shared utility classes, or team prefers Tailwind. Not needed here. |
+### CV Page
+**Stack:** Pure Astro `.astro` components + TypeScript data structures
+- No markdown needed (structured data, not prose)
+- Define TypeScript interfaces for work experience, education, skills
+- Render with Astro components using type-safe data
 
-## What NOT to Use
-
-| Avoid | Why | Use Instead |
-|-------|-----|-------------|
-| Astro.glob() | Removed in Astro 6. | `import.meta.glob()` (Vite native) or content collections |
-| CommonJS config | Removed in Astro 6. | ESM config files (.mjs or type: module) |
-| %xx% in routes | Removed in Astro 6. | Use standard URL encoding patterns |
-| Tailwind 3 | Legacy, superseded by Tailwind 4. | Tailwind 4 (via @tailwindcss/vite) or plain CSS |
-| CJS packages | Not ESM-compatible, cause build issues. | ESM packages or configure vite.ssr.noExternal |
-| Node < 22.12.0 | Astro 6 requirement. | Node 22.12.0+ (LTS) |
-
-## Stack Patterns by Variant
-
-**If building blog functionality later:**
-- Add `@astrojs/mdx` for enhanced Markdown
-- Use content collections for type-safe posts
-- Consider RSS feed via `@astrojs/sitemap`
-
-**If adding authentication:**
-- Use `astro:actions` for form handling
-- Integrate auth provider (Auth.js, Clerk, etc.)
-- Consider session management with `astro:session`
-
-**If deploying to Vercel/Netlify instead:**
-- Remove Docker configuration
-- Add platform-specific adapter: `@astrojs/vercel` or `@astrojs/netlify`
-- Keep GitHub Actions for pre-deployment checks
-
-**If adding CMS:**
-- Content collections work with headless CMS (Contentful, Sanity, etc.)
-- Use content loaders for external data
-- Consider `astro:db` for structured data
-
-## Version Compatibility
-
-| Package A | Compatible With | Notes |
-|-----------|-----------------|-------|
-| astro@6.0.4 | Node >=22.12.0 | Astro 6 requires Node 22+. Earlier Node versions not supported. |
-| vitest@2.x | astro@6.x | Use `getViteConfig()` helper from Astro config |
-| @playwright/test@1.x | astro@6.x | No special compatibility concerns |
-| TypeScript@5.x | astro@6.x | Astro 6 includes updated tsconfig.json defaults |
-
-## Docker Configuration
-
-### Recommended Dockerfile (Static Site with Nginx)
-
-```dockerfile
-# Build stage
-FROM node:22-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-# Runtime stage
-FROM nginx:alpine AS runtime
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 8080
-```
-
-### Nginx Configuration
-
-```nginx
-worker_processes 1;
-
-events {
-  worker_connections 1024;
+**Example structure:**
+```typescript
+// src/data/cv.ts
+export interface WorkExperience {
+  company: string;
+  role: string;
+  period: string;
+  achievements: string[];
 }
+```
 
-http {
-  server {
-    listen 8080;
-    server_name _;
+### Projects Showcase
+**Stack:** Astro Content Collections + built-in markdown rendering
+- Store projects as `.md` files in `src/content/projects/`
+- Use content collections with Zod schema for type safety
+- Render markdown body with `<Content />` component from `render()`
 
-    root /usr/share/nginx/html;
-    index index.html;
-    include /etc/nginx/mime.types;
+**Configuration:**
+```typescript
+// src/content.config.ts
+import { defineCollection, z } from 'astro:content';
 
-    gzip on;
-    gzip_min_length 1000;
-    gzip_proxied expired no-cache no-store private auth;
-    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+const projects = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    techStack: z.array(z.string()),
+    featured: z.boolean().default(false),
+    order: z.number(),
+  }),
+});
 
-    error_page 404 /404.html;
-    location = /404.html {
-      root /usr/share/nginx/html;
-      internal;
-    }
+export const collections = { projects };
+```
 
-    location / {
-      try_files $uri $uri/index.html =404;
+### Image Optimization
+**Stack:** Built-in `astro:assets` module (already available)
+- Use `<Image />` component from `astro:assets` for all images
+- Automatic format conversion (WebP/AVIF), responsive sizing, lazy loading
+- For CV headshot and project screenshots
+
+**Usage pattern:**
+```astro
+---
+import { Image } from 'astro:assets';
+import projectImage from '../assets/project-screenshot.png';
+---
+<Image src={projectImage} alt="Project screenshot" width={800} />
+```
+
+### Performance Optimization
+**Stack:** Astro built-ins + Lighthouse CI for validation
+- Astro 6.0.4 already optimizes: static generation, minimal JS, automatic code splitting
+- Add Lighthouse CI to GitHub Actions to enforce 90+ score requirement
+- Use built-in `astro check` for TypeScript validation (already in build script)
+
+**Lighthouse CI configuration:**
+```json
+// lighthouserc.json
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./dist"
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.9}],
+        "categories:accessibility": ["error", {"minScore": 0.9}],
+        "categories:best-practices": ["error", {"minScore": 0.9}],
+        "categories:seo": ["error", {"minScore": 0.9}]
+      }
     }
   }
 }
 ```
 
-## GitHub Actions Workflows
+### Animations
+**Stack:** Astro built-in `astro:transitions` module (already available)
+- Use `<ClientRouter />` component in layout for SPA-like transitions
+- Apply `transition:*` directives to elements needing animation
+- Built-in `prefers-reduced-motion` support (accessibility requirement met automatically)
+- Use subtle built-in animations: `fade`, `slide`, or define custom CSS animations
 
-### Recommended Pipeline Structure
+**Nordic minimalist approach:**
+```astro
+---
+// Subtle fade on page transitions, respects prefers-reduced-motion
+import { ClientRouter } from 'astro:transitions';
+---
+<html>
+  <head>
+    <ClientRouter />
+  </head>
+  <body>
+    <header transition:persist>
+      <!-- Fixed nav persists across pages -->
+    </header>
+    <main transition:animate="fade">
+      <!-- Content fades subtly on navigation -->
+      <slot />
+    </main>
+  </body>
+</html>
+```
 
-1. **Lint & Type Check** (on PR + push)
-   - `npm run lint`
-   - `astro check` (TypeScript)
-   - `npm run build` (catch build errors)
+**Custom subtle animation (if needed):**
+```astro
+<style is:global>
+  @keyframes subtle-slide {
+    from {
+      opacity: 0;
+      transform: translateY(8px); /* 8px = 1 spacing unit */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-2. **Test** (on PR + push)
-   - Vitest unit tests
-   - Playwright E2E tests (optional for v1)
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+```
 
-3. **Build Docker Image** (on tag)
-   - Build multi-arch image (amd64, arm64)
-   - Push to ghcr.io
-   - Tag with semantic version
+## What NOT to Use
 
-4. **Create Release** (on tag)
-   - GitHub Release with changelog
-   - Link to Docker image
+| Avoid | Why | Use Instead |
+|-------|-----|-------------|
+| `@astrojs/mdx` | MDX adds JSX support not needed for simple markdown content | Built-in markdown with content collections |
+| External markdown parsers (e.g., `marked`, `markdown-it`) | Astro includes remark/rehype by default | Astro's built-in markdown processor |
+| Image optimization libraries (e.g., `sharp` manually, `imagemin`) | Astro bundles Sharp and handles optimization | `<Image />` from `astro:assets` |
+| Animation libraries (e.g., `framer-motion`, `gsap`, `anime.js`) | Too heavy for subtle purposeful animations; conflicts with minimalist aesthetic | Built-in `astro:transitions` + CSS animations |
+| CSS-in-JS libraries | Adds runtime overhead, conflicts with Tailwind 4 + CSS custom properties approach | Tailwind 4 + CSS custom properties (already established) |
+| Client-side frameworks for static content | CV and Projects are static content, no interactivity needed | Pure Astro components |
 
-## CI/CD Example Workflow Files
+## Alternatives Considered
 
-### .github/workflows/ci.yml
+| Recommended | Alternative | When to Use Alternative |
+|-------------|-------------|-------------------------|
+| Astro content collections | Headless CMS (Contentful, Sanity) | If content needs non-technical editor UI or multi-user collaboration (not v1.0 scope) |
+| Built-in `<Image />` | Cloudinary, Imgix | If serving 1000s of images or need complex transformations beyond format/size (not v1.0 scope) |
+| CSS animations + `astro:transitions` | JavaScript animation libraries | If complex interactive animations needed (not aligned with minimalist design) |
+| Lighthouse CI in GitHub Actions | Manual Lighthouse audits | Never — automated validation prevents regression |
+
+## Version Compatibility
+
+| Package | Compatible With | Notes |
+|---------|-----------------|-------|
+| `astro@6.0.4` | `@lhci/cli@^0.14.0` | No conflicts; Lighthouse CI reads static output from `dist/` |
+| `astro@6.0.4` | `tailwindcss@^4.2.1` | Already validated in v0.1 |
+| Astro built-in Sharp | Node.js 22.12.0+ | Already specified in `package.json` engines |
+
+## Migration Notes from v0.1
+
+### No Breaking Changes
+- All existing Astro 6.0.4 + Tailwind 4 patterns remain unchanged
+- New features use built-in Astro capabilities, no new paradigms
+
+### Integration Points
+1. **Content Collections** — Add `src/content.config.ts` to define `projects` collection
+2. **Image Assets** — Create `src/assets/` directory for project images, CV headshot
+3. **View Transitions** — Add `<ClientRouter />` to existing layout (opt-in per page or global)
+4. **Lighthouse CI** — Add to `.github/workflows/ci.yml` after build step
+
+## Performance Implications
+
+### Build Time
+- **Image optimization:** First build will be slower (Sharp processing), subsequent builds cached
+- **Content collections:** Negligible impact (compiles markdown at build time)
+- **View transitions:** No build-time impact (runtime feature)
+
+**Mitigation:** Astro 6.0 includes incremental build caching; only changed images reprocess.
+
+### Runtime Performance
+- **Zero JavaScript overhead** for CV, Projects pages (static content)
+- **View transitions:** ~5KB gzipped for `<ClientRouter />` (only if used)
+- **Lighthouse 90+ achievable** with built-in optimizations (static generation, minimal JS, image optimization)
+
+## Lighthouse CI GitHub Actions Integration
+
+### Workflow Addition
+
+Add to `.github/workflows/ci.yml` after build step:
+
 ```yaml
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  lint-and-type-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
-      - run: npx astro check
-      - run: npm run build
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run test
+- name: Run Lighthouse CI
+  run: |
+    npm install -g @lhci/cli
+    lhci autorun --config=lighthouserc.json
+  env:
+    LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 ```
 
-### .github/workflows/release.yml
-```yaml
-name: Release
+### Configuration File
 
-on:
-  push:
-    tags:
-      - 'v*'
+Create `lighthouserc.json` at project root:
 
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ghcr.io/${{ github.repository }}
-
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-```
-
-## TypeScript Configuration
-
-Astro 6 provides modern TypeScript defaults. No custom tsconfig needed for basic setup. Default includes:
-
-- `strict: true`
-- `esModuleInterop: true`
-- `skipLibCheck: true`
-- `moduleResolution: "bundler"`
-- `jsx: "react-jsx"` (for framework components)
-
-## Testing Setup
-
-### Vitest Configuration (vitest.config.ts)
-
-```typescript
-import { getViteConfig } from 'astro/config';
-
-export default getViteConfig({
-  test: {
-    globals: true,
-    environment: 'node',
-  },
-});
-```
-
-### Playwright Configuration (playwright.config.ts)
-
-```typescript
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
-  testDir: './tests',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  use: {
-    baseURL: 'http://localhost:4321',
-    trace: 'on-first-retry',
-  },
-  webServer: {
-    command: 'npm run preview',
-    port: 4321,
-    timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
-});
+```json
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./dist",
+      "url": [
+        "http://localhost/",
+        "http://localhost/about/",
+        "http://localhost/cv/",
+        "http://localhost/projects/"
+      ]
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.9}],
+        "categories:accessibility": ["error", {"minScore": 0.9}],
+        "categories:best-practices": ["error", {"minScore": 0.9}],
+        "categories:seo": ["error", {"minScore": 0.9}],
+        "uses-responsive-images": "off",
+        "offscreen-images": "warn"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
 ```
 
 ## Sources
 
-- https://docs.astro.build/en/getting-started/ — Astro official documentation (verified March 2026)
-- https://docs.astro.build/en/recipes/docker/ — Official Docker recipe
-- https://docs.astro.build/en/guides/testing/ — Official testing guide
-- https://docs.astro.build/en/guides/deploy/ — Official deployment guide
-- https://github.com/withastro/astro/releases — Astro 6.0.4 release (March 12, 2026)
-- https://docs.astro.build/en/guides/styling/ — Official styling guide
-- https://docs.astro.build/en/guides/upgrade-to/v6/ — Astro 6 upgrade guide
-
-**Confidence Assessment:**
-- **Astro version and features:** HIGH (official docs, recent release)
-- **Docker configuration:** HIGH (official Astro recipe, proven pattern)
-- **CI/CD patterns:** HIGH (GitHub Actions standard, no breaking changes)
-- **Testing tools:** HIGH (official Astro recommendations, mature ecosystem)
-- **Node.js version:** HIGH (explicitly documented requirement)
+- **HIGH Confidence:** https://docs.astro.build/en/guides/markdown-content/ — Official Astro markdown documentation (verified March 15, 2026)
+- **HIGH Confidence:** https://docs.astro.build/en/guides/images/ — Official Astro image optimization documentation (verified March 15, 2026)
+- **HIGH Confidence:** https://docs.astro.build/en/guides/view-transitions/ — Official Astro view transitions documentation (verified March 15, 2026)
+- **HIGH Confidence:** https://docs.astro.build/en/guides/integrations-guide/ — Official Astro integrations guide (verified March 15, 2026)
+- **HIGH Confidence:** Package.json analysis — Verified existing Astro 6.0.4 installation includes all needed capabilities
+- **MEDIUM Confidence:** Lighthouse CI documentation (v0.14.0 current stable) — Standard tool for performance validation
+- **HIGH Confidence:** Astro built-in Sharp — Documented in Astro 6.0.4 image guide, no manual installation required
 
 ---
-*Stack research for: Personal Portfolio Website*
-*Researched: 2026-03-12*
+*Stack research for: Portfolio v1.0 milestone (CV, Projects, Performance, Animations, Images)*
+*Researched: 2026-03-15*
+*Researcher confidence: HIGH — All recommendations based on official Astro documentation for version 6.0.4*
