@@ -129,13 +129,64 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be mapped by roadmapper) | — | — |
+| COLL-01 | Phase 6 | Pending |
+| COLL-02 | Phase 6 | Pending |
+| COLL-03 | Phase 6 | Pending |
+| COLL-04 | Phase 6 | Pending |
+| COLL-05 | Phase 6 | Pending |
+| CV-01 | Phase 7 | Pending |
+| CV-02 | Phase 7 | Pending |
+| CV-03 | Phase 7 | Pending |
+| CV-04 | Phase 7 | Pending |
+| CV-05 | Phase 7 | Pending |
+| CV-06 | Phase 7 | Pending |
+| CV-07 | Phase 7 | Pending |
+| CV-08 | Phase 7 | Pending |
+| PROJ-01 | Phase 8 | Pending |
+| PROJ-02 | Phase 8 | Pending |
+| PROJ-03 | Phase 8 | Pending |
+| PROJ-04 | Phase 8 | Pending |
+| PROJ-05 | Phase 8 | Pending |
+| PROJ-06 | Phase 8 | Pending |
+| PROJ-07 | Phase 8 | Pending |
+| PROJ-08 | Phase 8 | Pending |
+| PROJ-09 | Phase 8 | Pending |
+| PROJ-10 | Phase 8 | Pending |
+| PROJ-11 | Phase 8 | Pending |
+| IMG-01 | Phase 9 | Pending |
+| IMG-02 | Phase 9 | Pending |
+| IMG-03 | Phase 9 | Pending |
+| IMG-04 | Phase 9 | Pending |
+| IMG-05 | Phase 9 | Pending |
+| IMG-06 | Phase 9 | Pending |
+| IMG-07 | Phase 9 | Pending |
+| IMG-08 | Phase 9 | Pending |
+| PERF-01 | Phase 10 | Pending |
+| PERF-02 | Phase 10 | Pending |
+| PERF-03 | Phase 10 | Pending |
+| PERF-04 | Phase 10 | Pending |
+| PERF-05 | Phase 10 | Pending |
+| PERF-06 | Phase 10 | Pending |
+| PERF-07 | Phase 10 | Pending |
+| PERF-08 | Phase 10 | Pending |
+| ANIM-01 | Phase 10 | Pending |
+| ANIM-02 | Phase 10 | Pending |
+| ANIM-03 | Phase 10 | Pending |
+| ANIM-04 | Phase 10 | Pending |
+| ANIM-05 | Phase 10 | Pending |
+| ANIM-06 | Phase 10 | Pending |
+| DEBT-01 | Phase 7 | Pending |
+| DEBT-02 | Phase 7 | Pending |
+| DEBT-03 | Phase 7 | Pending |
+| DEBT-04 | Phase 7 | Pending |
+| DEBT-05 | Phase 6 | Pending |
+| DEBT-06 | Phase 6 | Pending |
 
 **Coverage:**
-- v1.0 requirements: 49 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 49 ⚠️
+- v1.0 requirements: 52 total
+- Mapped to phases: 52/52 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after initial definition*
+*Last updated: 2026-03-15 after v1.0 roadmap creation (52 requirements mapped to phases 6-10)*

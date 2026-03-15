@@ -2,38 +2,40 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Feature-Complete Portfolio
-status: defining_requirements
+status: ready_to_plan
 last_updated: "2026-03-15"
 progress:
-  total_phases: 0
+  total_phases: 5
   completed_phases: 0
   total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_plans: 15
+  percent: 33
 ---
 
 # Project State: jake-reddy.com
 
 **Last Updated:** 2026-03-15
-**Status:** v0.1 archived — defining requirements for v1.0
+**Status:** v1.0 roadmap created — ready to plan Phase 6
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core Value:** Professionally present Jake's 5 years of full-stack development experience with a clean, striking design that reflects Nordic minimalism and technical excellence.
-**Current Focus:** v1.0 — Feature-Complete Portfolio (CV, Projects, Performance, Animations, Images)
+**Current Focus:** Phase 6 — Content Collections Foundation (v1.0 milestone)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements for v1.0
-Last activity: 2026-03-15 — Milestone v1.0 started
+Phase: 6 of 10 (Content Collections Foundation)
+Plan: 0 of TBD (planning not started)
+Status: Ready to plan Phase 6
+Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requirements mapped
 
-**Progress:** [░░░░░░░░░░] 0%
+**Progress:** [███░░░░░░░] 33% (5 of 15 total phases complete across all milestones)
 
 ## Phase Overview
+
+**v0.1 Phases (Complete):**
 
 | Phase | Status | Plans | Completed |
 |-------|--------|-------|-----------|
@@ -42,6 +44,16 @@ Last activity: 2026-03-15 — Milestone v1.0 started
 | 3. Design System Implementation | Complete ✅ | 3/3 | 2026-03-15 |
 | 4. Layout & Navigation | Complete ✅ | 2/2 | 2026-03-15 |
 | 5. Core Content Pages | Complete ✅ | 4/4 | 2026-03-15 |
+
+**v1.0 Phases (In Progress):**
+
+| Phase | Status | Plans | Completed |
+|-------|--------|-------|-----------|
+| 6. Content Collections Foundation | Not started | 0/TBD | - |
+| 7. CV Page | Not started | 0/TBD | - |
+| 8. Projects Showcase | Not started | 0/TBD | - |
+| 9. Image Optimization | Not started | 0/TBD | - |
+| 10. Performance & Animations | Not started | 0/TBD | - |
 
 ## Performance Metrics
 
@@ -121,7 +133,18 @@ Last activity: 2026-03-15 — Milestone v1.0 started
 
 ### Known Blockers
 
-None currently. All requirements defined, research complete, roadmap approved.
+**v1.0 risks identified in research:**
+- Content collection schema mismatches can break builds (mitigation: use optional fields during migration, test `npm run build` locally)
+- Docker image bloat from improper image handling (mitigation: Phase 9 validates <100MB requirement, `.dockerignore` excludes source images)
+- Animation accessibility violations if `prefers-reduced-motion` ignored (mitigation: Phase 10 wraps all animations in media query guards)
+
+**Technical debt from v0.1 (addressing in v1.0):**
+- Missing CSS custom properties (`--color-secondary`, `--color-border`) — Phase 7: DEBT-01
+- Header uses `bg-white` instead of `rgba(255,255,255,0.98)` — Phase 7: DEBT-02
+- Home page uses `text-gray-700` instead of `text-[#595959]` — Phase 7: DEBT-03
+- Footer uses `text-gray-600` instead of `text-[#595959]` — Phase 7: DEBT-04
+- Vitest config uses `vitest/config` instead of `astro/config` — Phase 6: DEBT-05
+- `package.json` test script missing `--run` flag — Phase 6: DEBT-06
 
 ### Critical Constraints
 
@@ -146,29 +169,37 @@ None currently. All requirements defined, research complete, roadmap approved.
 
 ### What Just Happened
 
-**Phase 5 Plan 05-04 completed** (2026-03-15):
-- Plan 05-04: Visual responsive verification approved by Jake
-- All 20 tests pass, production build clean
-- Home and About pages confirmed at 375px (mobile), 768px (tablet), 1024px+ (desktop)
-- 2-column highlights grid confirmed at md breakpoint; max-w-[1200px] alignment confirmed
-- NAV-03, NAV-04, NAV-05 requirements marked complete
+**v1.0 milestone roadmap created** (2026-03-15):
+- 5 phases defined (phases 6-10)
+- 52 requirements mapped with 100% coverage
+- Phase structure: Content Collections → CV → Projects → Images → Performance & Animations
+- Technical debt cleanup integrated into relevant phases (not separate phase)
+- Research insights incorporated into phase success criteria and risk mitigation
 
-**All 5 phases and all 15 plans fully complete.**
+**Coverage validation:**
+- COLL-01–05 → Phase 6
+- CV-01–08 → Phase 7
+- PROJ-01–11 → Phase 8
+- IMG-01–08 → Phase 9
+- PERF-01–08, ANIM-01–06 → Phase 10
+- DEBT-01–04 → Phase 7 (CSS/styling)
+- DEBT-05–06 → Phase 6 (test infrastructure)
 
 ### What's Next
 
-**All planned phases complete.** Site has:
-- Home page with Hero + Highlights grid
-- About page with Background, Philosophy, Nordic Life
-- Full design system (Nordic minimalist, JetBrains Mono + IBM Plex Sans)
-- CI/CD pipeline publishing Docker images to GHCR
-- Fixed header + active-link navigation + Footer with verified contact links
+**Ready to plan Phase 6: Content Collections Foundation**
 
-**Potential v2 work (deferred):** CV page, projects showcase, blog
+Next command: `/gsd-plan-phase 6`
+
+Phase 6 will establish:
+- `src/content.config.ts` with Zod schemas for CV and Projects
+- Build-time validation (`astro check` in CI)
+- Test infrastructure updates (DEBT-05, DEBT-06)
+- `.dockerignore` cache handling
 
 ### Context for Next Agent
 
-**All phases complete.** The site is production-ready with Home, About, and verified footer contact links. No blocking tasks remain.
+**v1.0 roadmap complete.** All 52 requirements mapped to 5 phases (6-10). Ready to begin Phase 6 planning. Research context available in `.planning/research/SUMMARY.md` with HIGH confidence across all areas.
 
 ---
 *State tracking active since 2026-03-12*
