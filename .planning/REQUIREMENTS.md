@@ -26,8 +26,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Navigation & Layout
 
-- [ ] **NAV-01**: Fixed navigation header on all pages
-- [ ] **NAV-02**: Navigation includes Home and About links
+- [x] **NAV-01**: Fixed navigation header on all pages
+- [x] **NAV-02**: Navigation includes Home and About links
 - [ ] **NAV-03**: Responsive layout works on mobile (375px+)
 - [ ] **NAV-04**: Responsive layout works on tablet (768px+)
 - [ ] **NAV-05**: Responsive layout works on desktop (1024px+)
@@ -130,8 +130,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSGN-04 | Phase 3 | Pending |
 | DSGN-05 | Phase 3 | Pending |
 | DSGN-06 | Phase 3 | Pending |
-| NAV-01 | Phase 4 | Pending |
-| NAV-02 | Phase 4 | Pending |
+| NAV-01 | Phase 4 | Complete |
+| NAV-02 | Phase 4 | Complete |
 | NAV-03 | Phase 5 | Pending |
 | NAV-04 | Phase 5 | Pending |
 | NAV-05 | Phase 5 | Pending |

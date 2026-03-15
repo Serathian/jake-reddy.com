@@ -102,7 +102,7 @@ Plans:
   4. Footer appears on every page with GitHub, LinkedIn, and email links
   5. Layout component wraps all pages with consistent structure
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Header, Footer, and BaseLayout update with active-link tests (NAV-01, NAV-02)
@@ -136,7 +136,7 @@ Plans:
 | 1. Foundation & Infrastructure | 4/4 | Complete | 2026-03-13 |
 | 2. CI/CD Pipeline | 2/2 | Complete | 2026-03-14 |
 | 3. Design System Implementation | 0/TBD | Not started | - |
-| 4. Layout & Navigation | 0/2 | Planning | - |
+| 4. Layout & Navigation | 1/2 | In Progress|  |
 | 5. Core Content Pages | 0/TBD | Not started | - |
 
 ## Research Flags
