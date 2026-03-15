@@ -2,11 +2,23 @@
 
 ## What This Is
 
-A personal portfolio website showcasing Jake Reddy's 5 years of full-stack development experience with a Nordic minimalist design. Built with Astro and deployed as a Docker container to GitHub Container Registry. v0.1 ships Home and About pages; CV and Projects pages come in v0.2.
+A personal portfolio website showcasing Jake Reddy's 5 years of full-stack development experience with a Nordic minimalist design. Built with Astro and deployed as a Docker container to GitHub Container Registry. v0.1 shipped Home and About pages; v1.0 adds CV and Projects showcase for feature-complete portfolio launch.
 
 ## Core Value
 
 Professionally present Jake's 5 years of full-stack development experience with a clean, striking design that reflects Nordic minimalism and technical excellence.
+
+## Current Milestone: v1.0 Feature-Complete Portfolio
+
+**Goal:** Complete the portfolio with CV and Projects pages, performance optimization, and purposeful animations.
+
+**Target features:**
+- CV page with real work experience, education, and technical skills
+- Projects showcase with 3-5 featured projects (mocked CMS data with markdown body content)
+- Performance optimization (Lighthouse score 90+)
+- Subtle purposeful animations (respecting prefers-reduced-motion)
+- Image optimization
+- Technical debt cleanup from v0.1 (CSS custom properties, Tailwind color tokens)
 
 ## Requirements
 
@@ -89,4 +101,4 @@ Deployment chain: code → Docker image (this project) → existing docker-compo
 | Mirror-logic test pattern | Test content data via inline functions, no .astro imports | ✓ Good — avoids Astro component test complexity, patterns established |
 
 ---
-*Last updated: 2026-03-15 after v0.1 milestone*
+*Last updated: 2026-03-15 after v1.0 milestone start*

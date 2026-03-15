@@ -1,8 +1,8 @@
 ---
 gsd_state_version: 1.0
-milestone: v0.2
-milestone_name: CV & Projects
-status: planning
+milestone: v1.0
+milestone_name: Feature-Complete Portfolio
+status: defining_requirements
 last_updated: "2026-03-15"
 progress:
   total_phases: 0
@@ -15,23 +15,23 @@ progress:
 # Project State: jake-reddy.com
 
 **Last Updated:** 2026-03-15
-**Status:** v0.1 archived — planning v0.2
+**Status:** v0.1 archived — defining requirements for v1.0
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core Value:** Professionally present Jake's 5 years of full-stack development experience with a clean, striking design that reflects Nordic minimalism and technical excellence.
-**Current Focus:** Planning v0.2 — CV & Projects milestone
+**Current Focus:** v1.0 — Feature-Complete Portfolio (CV, Projects, Performance, Animations, Images)
 
 ## Current Position
 
-**Phase:** 5 of 5 (Core Content Pages) - Complete
-**Plan:** 4 of 4 complete
-**Task:** Plan 05-04 complete — Visual responsive verification approved
-**Status:** All 5 phases complete; all 15 plans done
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements for v1.0
+Last activity: 2026-03-15 — Milestone v1.0 started
 
-**Progress:** [██████████] 100%
+**Progress:** [░░░░░░░░░░] 0%
 
 ## Phase Overview
 
