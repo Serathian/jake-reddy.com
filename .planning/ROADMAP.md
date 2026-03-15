@@ -14,7 +14,7 @@ Professionally present Jake's 5 years of full-stack development experience with 
 - [ ] **Phase 2: CI/CD Pipeline** - Automated quality checks and Docker publishing operational ✅
 - [ ] **Phase 3: Design System Implementation** - Nordic minimalist visual language established across all UI
 - [x] **Phase 4: Layout & Navigation** - Fixed header and shared page structure working (completed 2026-03-15)
-- [ ] **Phase 5: Core Content Pages** - Home and About pages complete with responsive design
+- [x] **Phase 5: Core Content Pages** - Home and About pages complete with responsive design (completed 2026-03-15)
 
 ## Phase Details
 
@@ -125,7 +125,7 @@ Plans:
   5. All pages render correctly on mobile (375px), tablet (768px), and desktop (1024px+)
   6. Critical components have test coverage
 
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Test scaffold + Home page Hero and Highlights (CONT-01, CONT-02, TEST-02)
@@ -143,7 +143,7 @@ Plans:
 | 2. CI/CD Pipeline | 2/2 | Complete | 2026-03-14 |
 | 3. Design System Implementation | 0/TBD | Not started | - |
 | 4. Layout & Navigation | 2/2 | Complete   | 2026-03-15 |
-| 5. Core Content Pages | 3/4 | In Progress|  |
+| 5. Core Content Pages | 4/4 | Complete   | 2026-03-15 |
 
 ## Research Flags
 
