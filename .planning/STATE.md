@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v0.1
 milestone_name: milestone
-status: planning
-last_updated: "2026-03-15T08:04:49.589Z"
+status: complete
+last_updated: "2026-03-15T10:09:30.000Z"
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 15
-  completed_plans: 12
-  percent: 80
+  completed_plans: 14
+  percent: 93
 ---
 
 # Project State: jake-reddy.com
@@ -25,12 +25,12 @@ progress:
 
 ## Current Position
 
-**Phase:** 5 of 5 (Core Content Pages) - In progress
-**Plan:** 1 of TBD complete
-**Task:** Plan 05-01 complete — Home page (Hero + Highlights), Wave 0 test scaffold
-**Status:** Phase 5 in progress; Plan 05-01 done
+**Phase:** 5 of 5 (Core Content Pages) - Complete
+**Plan:** 2 of 2 complete
+**Task:** Plan 05-02 complete — About page (Background, Philosophy, Nordic Life)
+**Status:** Phase 5 complete; all plans done
 
-**Progress:** [████████░░] 80%
+**Progress:** [██████████] 93%
 
 ## Phase Overview
 
@@ -40,7 +40,7 @@ progress:
 | 2. CI/CD Pipeline | Complete ✅ | 2/2 | 2026-03-14 |
 | 3. Design System Implementation | Complete ✅ | 3/3 | 2026-03-15 |
 | 4. Layout & Navigation | Complete ✅ | 2/2 | 2026-03-15 |
-| 5. Core Content Pages | In progress | 1/TBD | - |
+| 5. Core Content Pages | Complete ✅ | 2/2 | 2026-03-15 |
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ progress:
 **Rework frequency:** 0 (no plans required rework)
 | Phase 04-layout-and-navigation P02 | 5min | 2 tasks | 1 files |
 | Phase 05-core-content-pages P01 | 2min | 2 tasks | 3 files |
+| Phase 05-core-content-pages P02 | 3min | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -92,10 +93,12 @@ progress:
 25. **Mirror-logic pattern for page content data tests** — (Plan 05-01) Content data helpers defined inline in test files so Vitest node environment avoids importing .astro files
 26. **max-w-[1200px] directly on sections, not wrapping main** — (Plan 05-01) BaseLayout body already provides flex-col pt-[72px]; extra main wrapper would break layout
 27. **border-[#E5E5E5] explicit hex over Tailwind gray-200** — (Plan 05-01) Keeps color tied to design system token --color-border, not Tailwind's approximation
+28. **text-[#595959] explicit hex over Tailwind gray-700** — (Plan 05-02) Keeps body text tied to --color-secondary design token precisely; gray-700 (#374151) is a different shade
+29. **max-w-prose on paragraph text in About page** — (Plan 05-02) Comfortable 65ch reading line length without extra wrapper elements
 
 ### Active Todos
 
-- [ ] Execute Phase 5 Plan 05-02: About page content (next)
+- [x] Execute Phase 5 Plan 05-02: About page content (complete)
 - [x] Execute Phase 5 Plan 05-01: Home page Hero + Highlights (complete)
 - [x] Execute Plan 04-02: Layout & Navigation (complete)
 - [x] Execute Plan 04-01: Header, Footer, BaseLayout (complete)
@@ -137,28 +140,28 @@ None currently. All requirements defined, research complete, roadmap approved.
 
 ### What Just Happened
 
-**Phase 5 Plan 05-01 completed** (2026-03-15):
-- Plan 05-01: Home page at / with Hero (name, role, tagline) and Highlights (4-item 2-col responsive grid)
-- Wave 0 test scaffold: highlights.test.ts and footer-links.test.ts using mirror-logic pattern
-- CONT-01, CONT-02, TEST-02 requirements satisfied
-- Build, tests (20 pass), and astro check all green
+**Phase 5 Plan 05-02 completed** (2026-03-15):
+- Plan 05-02: About page at /about with Background, Philosophy, and Nordic Life sections
+- Replaced Phase 4 stub with full narrative content
+- CONT-03, CONT-04 requirements satisfied
+- Build and tests (20 pass) all green
+
+**Phase 5 fully complete** — both plans (05-01 Home, 05-02 About) done. All 5 phases complete.
 
 ### What's Next
 
-**Immediate:** Execute Phase 5 Plan 05-02 (About page content)
+**All planned phases complete.** Site has:
+- Home page with Hero + Highlights grid
+- About page with Background, Philosophy, Nordic Life
+- Full design system (Nordic minimalist, JetBrains Mono + IBM Plex Sans)
+- CI/CD pipeline publishing Docker images to GHCR
+- Fixed header + active-link navigation + Footer
 
-**Prerequisites satisfied:**
-- ✅ About page stub at /about ready for real content
-- ✅ BaseLayout contract established (title, description props)
-- ✅ Fixed header + active-link navigation working on all pages
-- ✅ Footer with contact links on all pages
-- ✅ Design system (typography, colors, spacing) fully operational
+**Potential v2 work (deferred):** CV page, projects showcase, blog
 
 ### Context for Next Agent
 
-You are about to **execute Phase 5** (Core Content Pages).
-
-**All layout and navigation complete.** Use `src/layouts/BaseLayout.astro` for every page. Refer to 04-01-SUMMARY.md and 04-02-SUMMARY.md for established patterns.
+**All phases complete.** The site is production-ready with Home and About pages. No blocking tasks remain.
 
 ---
 *State tracking active since 2026-03-12*
