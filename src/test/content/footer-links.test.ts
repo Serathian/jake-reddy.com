@@ -11,17 +11,17 @@ function getContactLinks(): ContactLink[] {
   return [
     {
       label: 'GitHub',
-      href: 'https://github.com/jareddy',
+      href: 'https://github.com/Serathian',
       external: true,
     },
     {
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/jareddy',
+      href: 'https://linkedin.com/in/jake-reddy',
       external: true,
     },
     {
       label: 'Email',
-      href: 'mailto:jake@jake-reddy.com',
+      href: 'mailto:info@jake-reddy.com',
       external: false,
     },
   ];
