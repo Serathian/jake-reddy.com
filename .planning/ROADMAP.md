@@ -102,7 +102,11 @@ Plans:
   4. Footer appears on every page with GitHub, LinkedIn, and email links
   5. Layout component wraps all pages with consistent structure
 
-**Plans:** TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Header, Footer, and BaseLayout update with active-link tests (NAV-01, NAV-02)
+- [ ] 04-02-PLAN.md — About page stub and visual navigation verification (NAV-01, NAV-02)
 
 ---
 
@@ -132,7 +136,7 @@ Plans:
 | 1. Foundation & Infrastructure | 4/4 | Complete | 2026-03-13 |
 | 2. CI/CD Pipeline | 2/2 | Complete | 2026-03-14 |
 | 3. Design System Implementation | 0/TBD | Not started | - |
-| 4. Layout & Navigation | 0/TBD | Not started | - |
+| 4. Layout & Navigation | 0/2 | Planning | - |
 | 5. Core Content Pages | 0/TBD | Not started | - |
 
 ## Research Flags
@@ -179,4 +183,4 @@ The following requirements are explicitly out of scope for v1 (from REQUIREMENTS
 Focus on Home and About pages first. CV and projects can be added in v2 after core identity is established.
 
 ---
-*Last updated: 2026-03-14 after Phase 2 complete*
+*Last updated: 2026-03-15 after Phase 4 planned*
