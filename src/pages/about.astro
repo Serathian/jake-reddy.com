@@ -1,9 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="About | Jake Reddy" description="About Jake Reddy, full-stack developer based in Oslo">
-  <main class="flex-1 max-w-4xl mx-auto px-4 py-8">
-    <h1 class="font-display text-4xl font-bold mb-4">About</h1>
-    <p class="font-body text-gray-700">Content coming in Phase 5.</p>
+<BaseLayout title="About | Jake Reddy" description="Five years building full-stack products. Based in Oslo, Norway.">
+  <main class="max-w-[1200px] mx-auto px-4 py-10 md:px-8 md:py-16 lg:px-12 lg:py-20">
+
+    <h1 class="font-display text-4xl font-bold mb-10 md:text-5xl">About</h1>
+
+    <!-- Section 1: Background -->
+    <section class="mb-10 md:mb-14">
+      <h2 class="font-display text-2xl font-semibold mb-4">Background</h2>
+      <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
+        Five years of full-stack development have taken me from startup MVPs to production systems handling thousands of daily users. I work across the entire stack — designing schemas, building APIs, and shipping interfaces — with TypeScript as my primary language and PostgreSQL as my go-to database. I prefer small, focused teams where ownership is clear and quality is non-negotiable.
+      </p>
+    </section>
+
+    <!-- Section 2: Philosophy -->
+    <section class="border-t border-[#E5E5E5] pt-8 mb-10 md:mb-14">
+      <h2 class="font-display text-2xl font-semibold mb-4">Philosophy</h2>
+      <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
+        Software should be as simple as the problem allows and no simpler. I value legibility over cleverness, boring technology over novelty for its own sake, and a working system over a perfect one that ships late. Good code is code the next developer can read, reason about, and change without fear.
+      </p>
+    </section>
+
+    <!-- Section 3: Nordic Life -->
+    <section class="border-t border-[#E5E5E5] pt-8">
+      <h2 class="font-display text-2xl font-semibold mb-4">Nordic Life</h2>
+      <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
+        I am based in Oslo, Norway, and have lived in the Nordic countries for the past four years. The directness, the long winters that demand indoor focus, and the cultural respect for craftsmanship all align with how I prefer to work. I am available across European time zones and collaborate regularly with distributed teams in the UK, Germany, and Sweden.
+      </p>
+    </section>
+
   </main>
 </BaseLayout>
