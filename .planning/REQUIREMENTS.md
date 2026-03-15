@@ -13,7 +13,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **CONT-02**: Home page includes brief professional highlights
 - [x] **CONT-03**: About page displays background and professional philosophy
 - [x] **CONT-04**: About page includes Nordic lifestyle context
-- [ ] **CONT-05**: Contact information visible (email, GitHub, LinkedIn links)
+- [x] **CONT-05**: Contact information visible (email, GitHub, LinkedIn links)
 
 ### Design System
 
@@ -123,7 +123,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-02 | Phase 5 | Complete |
 | CONT-03 | Phase 5 | Complete |
 | CONT-04 | Phase 5 | Complete |
-| CONT-05 | Phase 5 | Pending |
+| CONT-05 | Phase 5 | Complete |
 | DSGN-01 | Phase 3 | Pending |
 | DSGN-02 | Phase 3 | Pending |
 | DSGN-03 | Phase 3 | Pending |
