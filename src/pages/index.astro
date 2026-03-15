@@ -1,17 +1,34 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout 
+  title="Jake Reddy | Full-Stack Developer"
+  description="Nordic minimalist portfolio"
+>
+  <main class="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
+    <!-- Typography demonstration -->
+    <h1 class="font-display text-6xl font-bold">Jake Reddy</h1>
+    <p class="font-body text-xl text-gray-700">Full-Stack Developer</p>
+    
+    <!-- Design system features -->
+    <div class="flex gap-4">
+      <Button variant="primary">Primary Button</Button>
+      <Button variant="secondary">Secondary Button</Button>
+    </div>
+    
+    <!-- Design system verification card -->
+    <div class="border-2 border-black bg-white p-6">
+      <h2 class="font-display text-2xl font-bold mb-4">Design System Active</h2>
+      <ul class="font-body text-gray-700 space-y-2">
+        <li>✓ Monochrome palette (black/white/grays)</li>
+        <li>✓ JetBrains Mono headings</li>
+        <li>✓ IBM Plex Sans body text</li>
+        <li>✓ 8px spacing grid (p-6 = 48px, gap-4 = 32px)</li>
+        <li>✓ Sharp corners (border-radius: 0)</li>
+        <li>✓ High contrast (WCAG AAA)</li>
+        <li>✓ Crisp 2px borders</li>
+      </ul>
+    </div>
+  </main>
+</BaseLayout>
