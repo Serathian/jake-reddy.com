@@ -1,0 +1,26 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary';
+}
+
+const { variant = 'primary' } = Astro.props;
+
+const baseClasses = 'px-4 py-2 border-2 font-display transition-colors';
+const variantClasses = {
+  primary: 'bg-black text-white border-black hover:bg-gray-900',
+  secondary: 'bg-white text-black border-black hover:bg-gray-100',
+};
+---
+<button class:list={[baseClasses, variantClasses[variant]]}>
+  <slot />
+</button>
+
+<!-- 
+Design system compliance:
+- DSGN-01: Monochrome colors (black/white/gray)
+- DSGN-02: Typography (font-display = JetBrains Mono)
+- DSGN-03: 8px spacing (px-4 = 32px, py-2 = 16px)
+- DSGN-04: Sharp corners (border-2 has 0px radius)
+- DSGN-05: High contrast (black on white = 21:1)
+- DSGN-06: Crisp borders (border-2 = 2px solid)
+-->
