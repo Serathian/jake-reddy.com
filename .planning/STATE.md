@@ -1,27 +1,28 @@
 ---
 gsd_state_version: 1.0
-milestone: v0.1
-milestone_name: milestone
-status: completed
-last_updated: "2026-03-15T12:15:38.723Z"
+milestone: v0.2
+milestone_name: CV & Projects
+status: planning
+last_updated: "2026-03-15"
 progress:
-  total_phases: 5
-  completed_phases: 5
-  total_plans: 15
-  completed_plans: 15
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State: jake-reddy.com
 
 **Last Updated:** 2026-03-15
-**Status:** Milestone complete
+**Status:** v0.1 archived — planning v0.2
 
 ## Project Reference
 
-**Core Value:** Professionally present Jake's 5 years of full-stack development experience with a clean, striking design that reflects Nordic minimalism and technical excellence.
+See: .planning/PROJECT.md (updated 2026-03-15)
 
-**Current Focus:** Core Content Pages (Phase 5) — Home page content and About page content
+**Core Value:** Professionally present Jake's 5 years of full-stack development experience with a clean, striking design that reflects Nordic minimalism and technical excellence.
+**Current Focus:** Planning v0.2 — CV & Projects milestone
 
 ## Current Position
 
