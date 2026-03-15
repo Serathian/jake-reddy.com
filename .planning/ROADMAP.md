@@ -125,7 +125,13 @@ Plans:
   5. All pages render correctly on mobile (375px), tablet (768px), and desktop (1024px+)
   6. Critical components have test coverage
 
-**Plans:** TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Test scaffold + Home page Hero and Highlights (CONT-01, CONT-02, TEST-02)
+- [ ] 05-02-PLAN.md — About page Background, Philosophy, Nordic Life sections (CONT-03, CONT-04)
+- [ ] 05-03-PLAN.md — Footer contact link verification and cleanup (CONT-05)
+- [ ] 05-04-PLAN.md — Visual responsive verification at 375px, 768px, 1024px+ (NAV-03, NAV-04, NAV-05)
 
 ---
 
@@ -137,7 +143,7 @@ Plans:
 | 2. CI/CD Pipeline | 2/2 | Complete | 2026-03-14 |
 | 3. Design System Implementation | 0/TBD | Not started | - |
 | 4. Layout & Navigation | 2/2 | Complete   | 2026-03-15 |
-| 5. Core Content Pages | 0/TBD | Not started | - |
+| 5. Core Content Pages | 0/4 | Not started | - |
 
 ## Research Flags
 
@@ -183,4 +189,4 @@ The following requirements are explicitly out of scope for v1 (from REQUIREMENTS
 Focus on Home and About pages first. CV and projects can be added in v2 after core identity is established.
 
 ---
-*Last updated: 2026-03-15 after Phase 4 planned*
+*Last updated: 2026-03-15 after Phase 5 planned*
