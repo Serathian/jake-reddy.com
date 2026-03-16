@@ -7,13 +7,10 @@
 
 Requirements for feature-complete portfolio launch. Each maps to roadmap phases.
 
-### Content Collections
+### Type Infrastructure
 
-- [ ] **COLL-01**: Content collections configured with Zod schemas for CV and Projects
-- [ ] **COLL-02**: CV data structure supports work experience, education, and skills
-- [ ] **COLL-03**: Projects data structure supports markdown body content with frontmatter (title, tech stack, dates, links)
-- [ ] **COLL-04**: Build-time validation configured (astro check in CI)
-- [ ] **COLL-05**: Content collections integrated with existing mirror-logic test pattern
+- [ ] **TYPE-01**: TypeScript interface defined for Projects CMS response structure
+- [ ] **TYPE-02**: Projects type includes typical case study fields (title, description, tech stack, links)
 
 ### CV / Resume
 
@@ -32,13 +29,12 @@ Requirements for feature-complete portfolio launch. Each maps to roadmap phases.
 - [ ] **PROJ-02**: Projects list displays 3-5 featured projects in grid layout
 - [ ] **PROJ-03**: Each project card shows title, tech stack, and brief description
 - [ ] **PROJ-04**: User can click project to view detailed case study
-- [ ] **PROJ-05**: Project detail pages render markdown body content from CMS
+- [ ] **PROJ-05**: Project detail pages render content fetched from external CMS API
 - [ ] **PROJ-06**: Project detail pages display tech stack as structured data
 - [ ] **PROJ-07**: Project detail pages include demo and GitHub links (when available)
 - [ ] **PROJ-08**: Project content follows case study format (problem, solution, outcome)
 - [ ] **PROJ-09**: Projects page is responsive (375px mobile, 768px tablet, 1024px+ desktop)
 - [ ] **PROJ-10**: Projects link appears in navigation header
-- [ ] **PROJ-11**: Project data uses mocked CMS structure (markdown body + frontmatter)
 
 ### Image Optimization
 
@@ -129,11 +125,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COLL-01 | Phase 6 | Pending |
-| COLL-02 | Phase 6 | Pending |
-| COLL-03 | Phase 6 | Pending |
-| COLL-04 | Phase 6 | Pending |
-| COLL-05 | Phase 6 | Pending |
+| TYPE-01 | Phase 6 | Pending |
+| TYPE-02 | Phase 6 | Pending |
 | CV-01 | Phase 7 | Pending |
 | CV-02 | Phase 7 | Pending |
 | CV-03 | Phase 7 | Pending |
@@ -152,7 +145,6 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROJ-08 | Phase 8 | Pending |
 | PROJ-09 | Phase 8 | Pending |
 | PROJ-10 | Phase 8 | Pending |
-| PROJ-11 | Phase 8 | Pending |
 | IMG-01 | Phase 9 | Pending |
 | IMG-02 | Phase 9 | Pending |
 | IMG-03 | Phase 9 | Pending |
@@ -183,10 +175,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEBT-06 | Phase 6 | Pending |
 
 **Coverage:**
-- v1.0 requirements: 52 total
-- Mapped to phases: 52/52 ✓
+- v1.0 requirements: 48 total
+- Mapped to phases: 48/48 ✓
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after v1.0 roadmap creation (52 requirements mapped to phases 6-10)*
+*Last updated: 2026-03-15 after Phase 6 scope adjustment (content collections removed, 48 requirements mapped to phases 6-10)*

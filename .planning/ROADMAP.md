@@ -26,27 +26,26 @@ See `.planning/milestones/v0.1-ROADMAP.md` for full phase details.
 
 **Overview:** Transform v0.1 foundation into professional showcase through data-first approach: establish type-safe content collections, implement CV page with structured data, add Projects showcase with markdown rendering, optimize images, and polish with Lighthouse 90+ performance validation and Nordic-minimalist animations.
 
-#### Phase 6: Content Collections Foundation
-**Goal**: Establish type-safe content infrastructure with Zod schemas for CV and Projects data
+#### Phase 6: Type Infrastructure & Test Cleanup
+**Goal**: Create placeholder Project types for CMS integration and fix test infrastructure debt
 **Depends on**: v0.1 foundations (phases 1-5 complete)
-**Requirements**: COLL-01, COLL-02, COLL-03, COLL-04, COLL-05, DEBT-05, DEBT-06
+**Requirements**: TYPE-01, TYPE-02, DEBT-05, DEBT-06
 **Success Criteria** (what must be TRUE):
-  1. Content collections configured in `src/content.config.ts` with Zod schemas for CV (JSON) and Projects (markdown)
-  2. Build-time validation runs in CI (`astro check`) and fails on schema mismatches
-  3. TypeScript auto-generates content collection types from schemas (no manual type definitions)
-  4. Test infrastructure supports content collections (Vitest config uses `astro/config`, tests can validate content data)
-  5. Docker build excludes `.astro/` cache directory (verified in `.dockerignore`)
+  1. TypeScript interface defined for Projects in `src/types/project.ts` (placeholder for future CMS integration)
+  2. Test infrastructure uses `astro/config` instead of `vitest/config` (enables future component testing)
+  3. Test script includes `--run` flag for CI safety (non-TTY environments)
+  4. Docker build excludes `.astro/` cache directory (verified in `.dockerignore`)
 **Plans**: TBD
 
 Plans:
 - [ ] TBD (to be planned)
 
 #### Phase 7: CV Page
-**Goal**: Professional CV page displaying 5 years of work experience, education, and technical skills
-**Depends on**: Phase 6 (content collections foundation)
+**Goal**: Professional CV page with hardcoded content displaying 5 years of work experience, education, and technical skills
+**Depends on**: Phase 6 (test infrastructure ready)
 **Requirements**: CV-01, CV-02, CV-03, CV-04, CV-05, CV-06, CV-07, CV-08, DEBT-01, DEBT-02, DEBT-03, DEBT-04
 **Success Criteria** (what must be TRUE):
-  1. User can navigate to `/cv` route and view complete CV content
+  1. User can navigate to `/cv` route and view complete CV content (hardcoded in Astro component)
   2. CV displays 5 years of work experience with company names, roles, dates, and achievement metrics (e.g., "Improved performance 40%")
   3. CV shows education section and technical skills organized by category (Frontend, Backend, DevOps)
   4. CV is responsive across mobile (375px), tablet (768px), and desktop (1024px+) breakpoints
@@ -58,14 +57,14 @@ Plans:
 - [ ] TBD (to be planned)
 
 #### Phase 8: Projects Showcase
-**Goal**: Featured projects showcase with case study detail pages and markdown content rendering
+**Goal**: Featured projects showcase with case study detail pages fetching content from external CMS API
 **Depends on**: Phase 7 (CV page complete)
-**Requirements**: PROJ-01, PROJ-02, PROJ-03, PROJ-04, PROJ-05, PROJ-06, PROJ-07, PROJ-08, PROJ-09, PROJ-10, PROJ-11
+**Requirements**: PROJ-01, PROJ-02, PROJ-03, PROJ-04, PROJ-05, PROJ-06, PROJ-07, PROJ-08, PROJ-09, PROJ-10
 **Success Criteria** (what must be TRUE):
   1. User can navigate to `/projects` and view 3-5 featured projects in grid layout
   2. Each project card displays title, tech stack, and brief description
   3. User can click project to view detailed case study page at `/projects/[id]` route
-  4. Project detail pages render markdown body content with frontmatter (title, tech stack, dates, demo/GitHub links)
+  4. Project detail pages render content fetched from external CMS API using Project types from Phase 6
   5. Projects follow case study format (problem, solution, outcome) and are responsive across all breakpoints
   6. Projects link appears in navigation header
 **Plans**: TBD
