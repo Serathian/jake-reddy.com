@@ -2,6 +2,7 @@
 const { pathname } = Astro.url;
 const isHome = pathname === '/' || pathname === '';
 const isAbout = pathname === '/about' || pathname === '/about/';
+const isCV = pathname === '/cv' || pathname === '/cv/';
 ---
 <header class="fixed top-0 left-0 right-0 z-[1000] bg-white/98 backdrop-blur-sm border-b border-[#E5E5E5]">
   <nav class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
@@ -17,6 +18,11 @@ const isAbout = pathname === '/about' || pathname === '/about/';
         aria-current={isAbout ? 'page' : undefined}
         class="nav-link font-body text-sm font-medium text-[#595959] hover:text-black uppercase tracking-[1px] transition-colors cursor-pointer"
       >About</a>
+      <a
+        href="/cv"
+        aria-current={isCV ? 'page' : undefined}
+        class="nav-link font-body text-sm font-medium text-[#595959] hover:text-black uppercase tracking-[1px] transition-colors cursor-pointer"
+      >CV</a>
     </div>
   </nav>
 </header>
