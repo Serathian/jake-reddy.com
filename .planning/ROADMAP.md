@@ -35,10 +35,11 @@ See `.planning/milestones/v0.1-ROADMAP.md` for full phase details.
   2. Test infrastructure uses `astro/config` instead of `vitest/config` (enables future component testing)
   3. Test script includes `--run` flag for CI safety (non-TTY environments)
   4. Docker build excludes `.astro/` cache directory (verified in `.dockerignore`)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (to be planned)
+- [ ] 06-01-PLAN.md — Create placeholder Project TypeScript interface
+- [ ] 06-02-PLAN.md — Fix test infrastructure (Vitest config migration, --run flag, Docker cache exclusion)
 
 #### Phase 7: CV Page
 **Goal**: Professional CV page with hardcoded content displaying 5 years of work experience, education, and technical skills
