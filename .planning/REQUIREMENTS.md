@@ -73,8 +73,8 @@ Requirements for feature-complete portfolio launch. Each maps to roadmap phases.
 - [ ] **DEBT-02**: Header uses rgba(255,255,255,0.98) instead of bg-white
 - [ ] **DEBT-03**: Home page uses text-[#595959] instead of text-gray-700
 - [ ] **DEBT-04**: Footer uses text-[#595959] instead of text-gray-600
-- [ ] **DEBT-05**: Vitest config migrated to astro/config (enables component testing)
-- [ ] **DEBT-06**: package.json test script uses vitest --run flag
+- [x] **DEBT-05**: Vitest config migrated to astro/config (enables component testing)
+- [x] **DEBT-06**: package.json test script uses vitest --run flag
 
 ## v2+ Requirements
 
@@ -171,8 +171,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEBT-02 | Phase 7 | Pending |
 | DEBT-03 | Phase 7 | Pending |
 | DEBT-04 | Phase 7 | Pending |
-| DEBT-05 | Phase 6 | Pending |
-| DEBT-06 | Phase 6 | Pending |
+| DEBT-05 | Phase 6 | Complete |
+| DEBT-06 | Phase 6 | Complete |
 
 **Coverage:**
 - v1.0 requirements: 48 total

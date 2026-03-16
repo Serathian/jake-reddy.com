@@ -2,14 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Feature-Complete Portfolio
-status: ready_to_plan
-last_updated: "2026-03-15"
+status: planning
+last_updated: "2026-03-16T10:28:51.741Z"
+last_activity: 2026-03-16 — plan 06-01 complete (Project type interface created)
 progress:
   total_phases: 5
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 15
-  percent: 33
+  completed_phases: 1
+  total_plans: 2
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State: jake-reddy.com
@@ -26,12 +27,12 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 
 ## Current Position
 
-Phase: 6 of 10 (Content Collections Foundation)
-Plan: 0 of TBD (planning not started)
-Status: Ready to plan Phase 6
-Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requirements mapped
+Phase: 6 of 10 (Type Infrastructure & Test Cleanup)
+Plan: 2 of 2 (Phase 6 complete)
+Status: Phase 6 complete - ready to plan Phase 7
+Last activity: 2026-03-16 — plan 06-02 complete (Test infrastructure migrated to Astro integration)
 
-**Progress:** [███░░░░░░░] 33% (5 of 15 total phases complete across all milestones)
+**Progress:** [██████████] 100%
 
 ## Phase Overview
 
@@ -76,6 +77,9 @@ Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requ
 | Phase 05-core-content-pages P02 | 3min | 1 tasks | 1 files |
 | Phase 05-core-content-pages P03 | 5min | 2 tasks | 2 files |
 | Phase 05-core-content-pages P04 | 5min | 2 tasks | 0 files |
+| Phase 06 P01 | 1h 46m | 1 tasks | 1 files |
+| Phase 06 P02 | 4min | 2 tasks | 3 files |
+| Phase 06 P02 | 4min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -89,7 +93,7 @@ Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requ
 6. **Deferred v2 features** — CV page, projects showcase, blog (focus on Home and About first)
 7. **Initialize Astro in temp directory workaround** — (Plan 01-01) CLI won't initialize into non-empty directory; moved files after creation
 8. **Manual installation of @astrojs/check** — (Plan 01-01) TypeScript checking requires explicit devDependency installation
-9. **Use plain Vitest defineConfig instead of Astro's getViteConfig** — (Plan 01-02) getViteConfig caused SSR initialization errors; plain config works for unit tests
+9. **Use Vitest with Astro's getViteConfig()** — (Plan 06-02) Initially plain Vitest config used due to SSR errors with Vitest 2.x; migrated to Astro's getViteConfig() after upgrading to Vitest 3.2.4 for proper Vite config inheritance and future component testing support
 10. **Allow triple-slash-reference in src/env.d.ts** — (Plan 01-02) Required by Astro framework for type generation
 11. **Exclude planning and tooling directories from Prettier** — (Plan 01-02) Special markdown syntax in .planning/ and .opencode/ would be corrupted
 12. **Manual quality gate verification before CI/CD automation** — (Plan 01-04) Running checks manually establishes known-good baseline and validates exact sequence to automate
@@ -112,6 +116,10 @@ Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requ
 29. **max-w-prose on paragraph text in About page** — (Plan 05-02) Comfortable 65ch reading line length without extra wrapper elements
 30. **Confirmed contact links: github.com/Serathian, linkedin.com/in/jake-reddy, info@jake-reddy.com** — (Plan 05-03) All three placeholder values were wrong; Jake provided corrections via human checkpoint
 31. **Human visual inspection required for responsive layout verification** — (Plan 05-04) Astro static pages cannot be confirmed by automated tests alone; human checkpoint confirmed layout at 375px, 768px, 1024px+
+32. **Vitest 3.2.4 required for Astro 6 getViteConfig() compatibility** — (Plan 06-02) Upgraded from Vitest 2.1.9 to match official Astro template; resolves SSR initialization errors with getViteConfig()
+33. **Triple-slash reference syntax for Vitest types** — (Plan 06-02) Use `/// <reference types="vitest" />` not `vitest/config` per official Astro template
+34. **Explicit --run flag in test script for CI safety** — (Plan 06-02) Prevents watch mode hanging in non-TTY environments; more reliable than implicit CI detection
+35. **Exclude .astro/ from Docker images** — (Plan 06-02) Build cache not portable, bloats images by 10-50MB; added to .dockerignore
 
 ### Active Todos
 
@@ -143,8 +151,8 @@ Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requ
 - Header uses `bg-white` instead of `rgba(255,255,255,0.98)` — Phase 7: DEBT-02
 - Home page uses `text-gray-700` instead of `text-[#595959]` — Phase 7: DEBT-03
 - Footer uses `text-gray-600` instead of `text-[#595959]` — Phase 7: DEBT-04
-- Vitest config uses `vitest/config` instead of `astro/config` — Phase 6: DEBT-05
-- `package.json` test script missing `--run` flag — Phase 6: DEBT-06
+- ~~Vitest config uses `vitest/config` instead of `astro/config`~~ — Phase 6: DEBT-05 ✅ RESOLVED
+- ~~`package.json` test script missing `--run` flag~~ — Phase 6: DEBT-06 ✅ RESOLVED
 
 ### Critical Constraints
 
@@ -169,37 +177,35 @@ Last activity: 2026-03-15 — v1.0 roadmap created with 5 phases (6-10), 52 requ
 
 ### What Just Happened
 
-**v1.0 milestone roadmap created** (2026-03-15):
-- 5 phases defined (phases 6-10)
-- 52 requirements mapped with 100% coverage
-- Phase structure: Content Collections → CV → Projects → Images → Performance & Animations
-- Technical debt cleanup integrated into relevant phases (not separate phase)
-- Research insights incorporated into phase success criteria and risk mitigation
+**Phase 6 complete** (2026-03-16):
+- Plan 06-01: Created placeholder Project type interface for future CMS integration
+- Plan 06-02: Migrated Vitest to Astro's getViteConfig(), added CI-safe --run flag, optimized Docker builds
+- Technical debt items DEBT-05 and DEBT-06 resolved
+- Test infrastructure now uses official Astro integration pattern (enables future component testing)
+- All 20 tests passing with new configuration
 
-**Coverage validation:**
-- COLL-01–05 → Phase 6
-- CV-01–08 → Phase 7
-- PROJ-01–11 → Phase 8
-- IMG-01–08 → Phase 9
-- PERF-01–08, ANIM-01–06 → Phase 10
-- DEBT-01–04 → Phase 7 (CSS/styling)
-- DEBT-05–06 → Phase 6 (test infrastructure)
+**Key discoveries:**
+- Vitest 3.x required for Astro 6 compatibility (upgraded from 2.1.9 to 3.2.4)
+- Original SSR errors with getViteConfig() were due to Vitest version incompatibility, not a fundamental issue
+- Docker cache exclusion (.astro/) prevents 10-50MB image bloat
 
 ### What's Next
 
-**Ready to plan Phase 6: Content Collections Foundation**
+**Ready to plan Phase 7: CV Page**
 
-Next command: `/gsd-plan-phase 6`
+Next command: `/gsd-plan-phase 7`
 
-Phase 6 will establish:
-- `src/content.config.ts` with Zod schemas for CV and Projects
-- Build-time validation (`astro check` in CI)
+Phase 7 will deliver:
+- CV page with career timeline (companies, roles, dates, achievements)
+- Hardcoded content directly in Astro component (no content collection)
+- Resolve CSS design system debt (DEBT-01 through DEBT-04)
+- Responsive layout matching Home and About pages
 - Test infrastructure updates (DEBT-05, DEBT-06)
 - `.dockerignore` cache handling
 
 ### Context for Next Agent
 
-**v1.0 roadmap complete.** All 52 requirements mapped to 5 phases (6-10). Ready to begin Phase 6 planning. Research context available in `.planning/research/SUMMARY.md` with HIGH confidence across all areas.
+**Phase 6 complete.** Test infrastructure migrated to official Astro integration pattern. Project type interface created for Phase 8 CMS integration. Ready to plan Phase 7 (CV Page). Technical debt DEBT-01 through DEBT-04 will be addressed during Phase 7 implementation.
 
 ---
 *State tracking active since 2026-03-12*
