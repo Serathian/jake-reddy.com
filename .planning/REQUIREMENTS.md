@@ -14,14 +14,14 @@ Requirements for feature-complete portfolio launch. Each maps to roadmap phases.
 
 ### CV / Resume
 
-- [ ] **CV-01**: User can view CV page at /cv route
-- [ ] **CV-02**: CV displays professional work experience (5 years) with company names, roles, dates, and achievements
-- [ ] **CV-03**: CV includes metrics and impact statements (e.g., "Improved performance 40%")
-- [ ] **CV-04**: CV displays education section
-- [ ] **CV-05**: CV displays technical skills organized by category (Frontend, Backend, DevOps)
-- [ ] **CV-06**: CV content matches Jake's real experience (from provided CV files)
-- [ ] **CV-07**: CV page is responsive (375px mobile, 768px tablet, 1024px+ desktop)
-- [ ] **CV-08**: CV link appears in navigation header
+- [x] **CV-01**: User can view CV page at /cv route
+- [x] **CV-02**: CV displays professional work experience (5 years) with company names, roles, dates, and achievements
+- [x] **CV-03**: CV includes metrics and impact statements (e.g., "Improved performance 40%")
+- [x] **CV-04**: CV displays education section
+- [x] **CV-05**: CV displays technical skills organized by category (Frontend, Backend, DevOps)
+- [x] **CV-06**: CV content matches Jake's real experience (from provided CV files)
+- [x] **CV-07**: CV page is responsive (375px mobile, 768px tablet, 1024px+ desktop)
+- [x] **CV-08**: CV link appears in navigation header
 
 ### Projects Showcase
 
@@ -127,14 +127,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | TYPE-01 | Phase 6 | Pending |
 | TYPE-02 | Phase 6 | Pending |
-| CV-01 | Phase 7 | Pending |
-| CV-02 | Phase 7 | Pending |
-| CV-03 | Phase 7 | Pending |
-| CV-04 | Phase 7 | Pending |
-| CV-05 | Phase 7 | Pending |
-| CV-06 | Phase 7 | Pending |
-| CV-07 | Phase 7 | Pending |
-| CV-08 | Phase 7 | Pending |
+| CV-01 | Phase 7 | Complete |
+| CV-02 | Phase 7 | Complete |
+| CV-03 | Phase 7 | Complete |
+| CV-04 | Phase 7 | Complete |
+| CV-05 | Phase 7 | Complete |
+| CV-06 | Phase 7 | Complete |
+| CV-07 | Phase 7 | Complete |
+| CV-08 | Phase 7 | Complete |
 | PROJ-01 | Phase 8 | Pending |
 | PROJ-02 | Phase 8 | Pending |
 | PROJ-03 | Phase 8 | Pending |
