@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="CV | Jake Reddy" description="Five years of full-stack development experience. TypeScript, React, Node.js, PostgreSQL.">
+  <main class="max-w-[1200px] mx-auto px-4 py-10 md:px-8 md:py-16 lg:px-12 lg:py-20">
+
+    <h1 class="font-display text-4xl font-bold mb-10 md:text-5xl">CV</h1>
+
+    <!-- Work Experience Section -->
+    <section class="mb-10 md:mb-14">
+      <h2 class="font-display text-2xl font-semibold mb-4">Work Experience</h2>
+      
+      <!-- Entry 1: Most Recent -->
+      <div class="border-t border-[#E5E5E5] pt-8 mt-0">
+        <h3 class="font-display text-xl font-semibold mb-1">Company A</h3>
+        <p class="font-body text-base text-[#595959] mb-1">Senior Full-Stack Developer</p>
+        <p class="font-body text-sm text-[#595959] mb-4">Jan 2021 - Present</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li class="font-body text-base text-[#595959] max-w-prose">Built feature improving performance 40% by optimizing database queries and implementing Redis caching layer</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Led team of 4 engineers in migrating monolith to microservices architecture</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Architected event-driven notification system handling 50,000+ daily events</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Established TypeScript best practices and testing standards across engineering team</li>
+        </ul>
+      </div>
+
+      <!-- Entry 2: Mid Career -->
+      <div class="border-t border-[#E5E5E5] pt-8 mt-8">
+        <h3 class="font-display text-xl font-semibold mb-1">Company B</h3>
+        <p class="font-body text-base text-[#595959] mb-1">Full-Stack Developer</p>
+        <p class="font-body text-sm text-[#595959] mb-4">Mar 2019 - Dec 2020</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li class="font-body text-base text-[#595959] max-w-prose">Developed REST API serving 10,000+ daily requests with sub-200ms response times</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Implemented CI/CD pipeline reducing deployment time 60% using GitHub Actions and Docker</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Built user authentication system with JWT tokens and refresh rotation strategy</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Created React dashboard with real-time updates via WebSocket connections</li>
+        </ul>
+      </div>
+
+      <!-- Entry 3: Early Career -->
+      <div class="border-t border-[#E5E5E5] pt-8 mt-8">
+        <h3 class="font-display text-xl font-semibold mb-1">Company C</h3>
+        <p class="font-body text-base text-[#595959] mb-1">Junior Developer</p>
+        <p class="font-body text-sm text-[#595959] mb-4">Jun 2017 - Feb 2019</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li class="font-body text-base text-[#595959] max-w-prose">Contributed to React frontend codebase with TypeScript and Redux state management</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Fixed 50+ production bugs and implemented automated regression test suite</li>
+          <li class="font-body text-base text-[#595959] max-w-prose">Collaborated with designers to implement responsive layouts across mobile and desktop</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="border-t border-[#E5E5E5] pt-8 mb-10 md:mb-14">
+      <h2 class="font-display text-2xl font-semibold mb-4">Education</h2>
+      <div>
+        <h3 class="font-display text-xl font-semibold mb-1">University Name</h3>
+        <p class="font-body text-base text-[#595959] mb-1">BSc Computer Science</p>
+        <p class="font-body text-sm text-[#595959]">2015 - 2019</p>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="border-t border-[#E5E5E5] pt-8">
+      <h2 class="font-display text-2xl font-semibold mb-4">Technical Skills</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-display text-base font-semibold mb-2">Frontend</h3>
+          <p class="font-body text-base text-[#595959]">TypeScript, React, Astro, Tailwind CSS, Redux, Vite</p>
+        </div>
+        <div>
+          <h3 class="font-display text-base font-semibold mb-2">Backend</h3>
+          <p class="font-body text-base text-[#595959]">Node.js, PostgreSQL, Express, Prisma, Redis, RESTful APIs</p>
+        </div>
+        <div>
+          <h3 class="font-display text-base font-semibold mb-2">DevOps</h3>
+          <p class="font-body text-base text-[#595959]">Docker, GitHub Actions, Nginx, CI/CD, Linux</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
