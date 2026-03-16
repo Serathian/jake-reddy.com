@@ -14,6 +14,10 @@
   --color-gray-700: #404040;  /* 9.7:1 - body text OK (meets WCAG AAA) */
   --color-gray-800: #262626;  /* 13.3:1 - body text OK (meets WCAG AAA) */
   --color-gray-900: #171717;  /* 16.1:1 - body text OK (meets WCAG AAA) */
+  
+  /* Design system tokens - DSGN-01 */
+  --color-secondary: #595959;  /* Muted text, captions, nav links (WCAG AAA 7.5:1 contrast) */
+  --color-border: #E5E5E5;     /* Dividers, card borders, section separators */
 
   /* Typography - DSGN-02 */
   /* Font variables populated by Astro Fonts API */
