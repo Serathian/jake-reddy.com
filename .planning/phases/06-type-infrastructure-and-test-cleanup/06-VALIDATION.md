@@ -38,10 +38,9 @@ created: 2026-03-16
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 06-01-01 | 01 | 1 | TYPE-01 | unit | `npm test -- src/types/project.test.ts` | ❌ W0 | ⬜ pending |
-| 06-01-02 | 01 | 1 | TYPE-02 | unit | `npm test -- src/types/project.test.ts` | ❌ W0 | ⬜ pending |
-| 06-02-01 | 02 | 2 | DEBT-05 | integration | `npm test -- --run` | ✅ | ⬜ pending |
-| 06-03-01 | 03 | 3 | DEBT-06 | build | `npm run build` | ✅ | ⬜ pending |
+| 06-01-01 | 01 | 1 | TYPE-01, TYPE-02 | type-check | `npm run typecheck` | ✅ | ⬜ pending |
+| 06-02-01 | 02 | 1 | DEBT-05 | integration | `npm test` | ✅ | ⬜ pending |
+| 06-02-02 | 02 | 1 | DEBT-06 | integration | `npm test && grep -q "vitest --run" package.json && grep -q ".astro" .dockerignore` | ✅ | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -49,9 +48,7 @@ created: 2026-03-16
 
 ## Wave 0 Requirements
 
-- [ ] `src/types/project.test.ts` — unit tests for Project interface (TYPE-01, TYPE-02)
-
-*Other requirements use existing test infrastructure or build verification.*
+*No Wave 0 requirements — all tasks use existing infrastructure or type checking.*
 
 ---
 
