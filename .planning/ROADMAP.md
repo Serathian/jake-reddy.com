@@ -52,10 +52,11 @@ Plans:
   4. CV is responsive across mobile (375px), tablet (768px), and desktop (1024px+) breakpoints
   5. CV link appears in navigation header alongside Home and About links
   6. Design system debt resolved: CSS custom properties added (`--color-secondary`, `--color-border`), header uses `rgba(255,255,255,0.98)`, components use `text-[#595959]` instead of gray utilities
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (to be planned)
+- [ ] 07-01-PLAN.md — Design system debt cleanup (CSS custom properties, header opacity, color token fixes)
+- [ ] 07-02-PLAN.md — CV page implementation (route, content, tests, navigation integration)
 
 #### Phase 8: Projects Showcase
 **Goal**: Featured projects showcase with case study detail pages fetching content from external CMS API
@@ -112,11 +113,11 @@ Plans:
 | 3. Design System Implementation | v0.1 | 3/3 | Complete | 2026-03-15 |
 | 4. Layout & Navigation | v0.1 | 2/2 | Complete | 2026-03-15 |
 | 5. Core Content Pages | v0.1 | 4/4 | Complete | 2026-03-15 |
-| 6. Content Collections Foundation | v1.0 | 0/TBD | Not started | - |
-| 7. CV Page | v1.0 | 0/TBD | Not started | - |
+| 6. Content Collections Foundation | v1.0 | 2/2 | Complete | 2026-03-16 |
+| 7. CV Page | v1.0 | 0/2 | Ready | - |
 | 8. Projects Showcase | v1.0 | 0/TBD | Not started | - |
 | 9. Image Optimization | v1.0 | 0/TBD | Not started | - |
 | 10. Performance & Animations | v1.0 | 0/TBD | Not started | - |
 
 ---
-*Last updated: 2026-03-15 after v1.0 milestone roadmap created*
+*Last updated: 2026-03-16 after Phase 7 planning complete*
