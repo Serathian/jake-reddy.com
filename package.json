@@ -10,7 +10,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "test": "vitest",
+    "test": "vitest --run",
     "test:ui": "vitest --ui",
     "lint": "eslint . --ext .js,.ts,.astro",
     "format": "prettier --write .",
