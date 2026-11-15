@@ -16,12 +16,13 @@ concurrency:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: serathian/jake-reddy.com
-  CMS_URL: ${{ vars.CMS_URL || 'https://basecamp.jake-reddy.com' }}
 
 jobs:
   check-cms:
     name: Check Basecamp CMS Availability
     runs-on: ubuntu-latest
+    env:
+      CMS_URL: ${{ vars.CMS_URL || 'https://basecamp.jake-reddy.com' }}
     outputs:
       cms_online: ${{ steps.probe.outputs.cms_online }}
     steps:
@@ -43,6 +44,8 @@ jobs:
     needs: check-cms
     if: needs.check-cms.outputs.cms_online == 'true'
     runs-on: ubuntu-latest
+    env:
+      CMS_URL: ${{ vars.CMS_URL || 'https://basecamp.jake-reddy.com' }}
     permissions:
       contents: read
       packages: write
@@ -76,8 +79,13 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Trigger Watchtower update
-        if: ${{ secrets.WATCHTOWER_TOKEN != '' }}
+        env:
+          WATCHTOWER_TOKEN: ${{ secrets.WATCHTOWER_TOKEN }}
         run: |
-          curl -sf -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
-            https://watchtower.jake-reddy.com/v1/update || \
-            echo "::warning::Watchtower webhook call failed; periodic polling will pull :latest on schedule."
+          if [ -n "$WATCHTOWER_TOKEN" ]; then
+            curl -sf -H "Authorization: Bearer $WATCHTOWER_TOKEN" \
+              https://watchtower.jake-reddy.com/v1/update || \
+              echo "::warning::Watchtower webhook call failed; periodic polling will pull :latest on schedule."
+          else
+            echo "::notice::WATCHTOWER_TOKEN secret is not set; skipping Watchtower webhook trigger."
+          fi
