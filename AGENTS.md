@@ -6,13 +6,13 @@ Operational guidelines and contracts for AI agents working in `jake-reddy.com`.
 
 ## Technical Stack & Constraints
 
-| Item | Details |
-| :--- | :--- |
-| Framework | Astro 5 |
-| Styling | Tailwind CSS |
-| Local Port | `http://localhost:3002` |
-| Production Container | `ghcr.io/Serathian/jake-reddy.com:latest` |
-| Web Server | Nginx Alpine (non-root `nginx` user, port 80) |
+| Item                 | Details                                       |
+| :------------------- | :-------------------------------------------- |
+| Framework            | Astro 6 (`^6.0.4`)                            |
+| Styling              | Tailwind CSS                                  |
+| Local Port           | `http://localhost:3002`                       |
+| Production Container | `ghcr.io/Serathian/jake-reddy.com:latest`     |
+| Web Server           | Nginx Alpine (non-root `nginx` user, port 80) |
 
 ---
 

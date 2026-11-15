@@ -1,37 +1,115 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+import BlogCard from '../components/ui/BlogCard.astro';
+import { getProjects, getBlogPosts } from '../lib/cms';
+
+const allProjects = await getProjects();
+const allPosts = await getBlogPosts();
+
+const featuredProjects = allProjects.filter((p) => p.featured);
+const latestPosts = allPosts.slice(0, 2);
 ---
+
 <BaseLayout
   title="Jake Reddy | Full-Stack Developer"
-  description="Five years building full-stack products — from API design to pixel-perfect interfaces — with a focus on clarity and craft."
+  description="Personal site, blog, and project showcase by Jake Reddy. Five years building full-stack products with craft and clarity."
 >
-  <section class="max-w-[1200px] mx-auto px-4 py-10 md:px-8 md:py-16 lg:px-12 lg:py-20">
-    <p class="font-body text-sm text-[#595959] uppercase tracking-[1px] mb-2">Full-Stack Developer</p>
-    <h1 class="font-display text-4xl font-bold mb-4 md:text-5xl lg:text-6xl leading-tight">Jake Reddy</h1>
-    <p class="font-body text-lg text-[#595959] max-w-xl leading-relaxed mb-8">
-      Five years building full-stack products — from API design to pixel-perfect interfaces — with a focus on clarity and craft.
+  <!-- Hero Section with subtle signature purple accent line at top -->
+  <section
+    class="max-w-[1200px] mx-auto px-4 py-12 md:px-8 md:py-20 border-b border-[#E5E5E5] dark:border-[#333333] relative"
+  >
+    <div class="absolute top-0 left-4 md:left-8 w-12 h-1 bg-[#7c3aed] dark:bg-[#a78bfa]"></div>
+
+    <p
+      class="font-display text-xs md:text-sm text-[#525252] dark:text-[#A3A3A3] uppercase tracking-[2px] mb-4"
+    >
+      FULL-STACK SOFTWARE ENGINEER
+    </p>
+    <h1
+      class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-none mb-6"
+    >
+      JAKE REDDY
+    </h1>
+    <p
+      class="font-body text-base md:text-xl text-[#525252] dark:text-[#A3A3A3] max-w-2xl leading-relaxed"
+    >
+      Building robust software solutions across the entire stack. Language-agnostic,
+      fundamentals-driven engineering with a focus on architecture, performance, and craft.
     </p>
   </section>
 
-  <section class="border-t border-[#E5E5E5] max-w-[1200px] mx-auto px-4 py-8 md:px-8 md:py-12 lg:px-12">
-    <h2 class="font-display text-2xl font-semibold mb-6">Highlights</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <li class="border border-[#E5E5E5] p-4">
-        <h3 class="font-display text-base font-semibold mb-1">Full-Stack Engineering</h3>
-        <p class="font-body text-sm text-[#595959] leading-relaxed">Five years across TypeScript, Node.js, React, and PostgreSQL — building production systems end to end.</p>
-      </li>
-      <li class="border border-[#E5E5E5] p-4">
-        <h3 class="font-display text-base font-semibold mb-1">API Design</h3>
-        <p class="font-body text-sm text-[#595959] leading-relaxed">REST and GraphQL APIs designed for clarity, versioned for longevity, and documented for the next developer.</p>
-      </li>
-      <li class="border border-[#E5E5E5] p-4">
-        <h3 class="font-display text-base font-semibold mb-1">Developer Experience</h3>
-        <p class="font-body text-sm text-[#595959] leading-relaxed">CI/CD pipelines, Docker containerisation, and tooling that make shipping fast and safe.</p>
-      </li>
-      <li class="border border-[#E5E5E5] p-4">
-        <h3 class="font-display text-base font-semibold mb-1">Oslo-Based</h3>
-        <p class="font-body text-sm text-[#595959] leading-relaxed">Working remotely across European time zones from Oslo, Norway. Fluent in English, Norwegian.</p>
-      </li>
-    </ul>
+  <!-- Featured Projects Section -->
+  <section
+    class="max-w-[1200px] mx-auto px-4 py-12 md:px-8 border-b border-[#E5E5E5] dark:border-[#333333]"
+  >
+    <div class="flex items-center justify-between mb-8">
+      <h2
+        class="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight flex items-center gap-3"
+      >
+        <span
+          class="w-2.5 h-2.5 bg-[#7c3aed] dark:bg-[#a78bfa] inline-block shrink-0"
+          aria-hidden="true"></span>
+        Featured Work
+      </h2>
+      <a
+        href="/projects"
+        class="font-display text-xs font-bold uppercase tracking-wider text-black dark:text-white hover:underline"
+      >
+        All Projects ({allProjects.length}) →
+      </a>
+    </div>
+
+    {
+      featuredProjects.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredProjects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ) : (
+        <div class="border border-dashed border-[#E5E5E5] dark:border-[#262626] rounded-lg p-8 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-[#737373] dark:text-[#A3A3A3]">
+            No projects published yet
+          </p>
+        </div>
+      )
+    }
+  </section>
+
+  <!-- Latest Writing Section -->
+  <section class="max-w-[1200px] mx-auto px-4 py-12 md:px-8">
+    <div class="flex items-center justify-between mb-8">
+      <h2
+        class="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight flex items-center gap-3"
+      >
+        <span
+          class="w-2.5 h-2.5 bg-[#7c3aed] dark:bg-[#a78bfa] inline-block shrink-0"
+          aria-hidden="true"></span>
+        Latest Writing
+      </h2>
+      <a
+        href="/blog"
+        class="font-display text-xs font-bold uppercase tracking-wider text-black dark:text-white hover:underline"
+      >
+        All Articles ({allPosts.length}) →
+      </a>
+    </div>
+
+    {
+      latestPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {latestPosts.map((post) => (
+            <BlogCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <div class="border border-dashed border-[#E5E5E5] dark:border-[#262626] rounded-lg p-8 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-[#737373] dark:text-[#A3A3A3]">
+            No articles published yet
+          </p>
+        </div>
+      )
+    }
   </section>
 </BaseLayout>

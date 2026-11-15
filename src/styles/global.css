@@ -1,4 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Enable class-based dark mode in Tailwind CSS v4 */
+@variant dark (&:where(.dark, .dark *));
 
 /* Base styles */
 *,
@@ -9,10 +13,21 @@
 
 body {
   font-family: var(--font-ibm-plex-sans);
-  color: var(--color-black);
-  background-color: var(--color-white);
+  color: #000000;
+  background-color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.dark body,
+html.dark body {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-jetbrains-mono);
 }

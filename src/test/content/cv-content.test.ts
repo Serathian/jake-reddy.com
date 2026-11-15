@@ -29,46 +29,37 @@ function getCVContent(): CVContent {
   return {
     workExperience: [
       {
-        company: 'Company A',
-        role: 'Senior Full-Stack Developer',
-        dateRange: 'Jan 2021 - Present',
+        company: 'Solita',
+        role: 'Software Designer',
+        dateRange: '10/2021 - Present',
         achievements: [
-          'Built feature improving performance 40%',
-          'Led team of 4 engineers',
-          'Architected microservices platform'
-        ]
+          'Developed mission planning UIs, 3D visualization, and real-time telemetry for confidential Autonomous Flight R&D project',
+          'Engineered backend integrations utilizing Protocol Buffers (protobuf) and NATS stream-based state management',
+          'Led Vue 2 to React frontend migration for public procurement platform serving nationwide entities',
+          'Architected hilma-sdk typed SDK providing self-documenting data validation patterns',
+          'Implemented Azure Service Bus integration with transactional outbox pattern for guaranteed delivery',
+          'Executed framework migration from .NET 8 to .NET 10 with 100% backward compatibility',
+        ],
       },
       {
-        company: 'Company B',
-        role: 'Full-Stack Developer',
-        dateRange: 'Mar 2019 - Dec 2020',
-        achievements: [
-          'Developed REST API serving 10,000+ daily requests',
-          'Implemented CI/CD pipeline reducing deployment time 60%'
-        ]
+        company: 'Hospitality Operations',
+        role: 'Manager',
+        dateRange: '01/2019 - 04/2020',
+        achievements: ['Oversaw daily operations, inventory management, and team scheduling'],
       },
-      {
-        company: 'Company C',
-        role: 'Junior Developer',
-        dateRange: 'Jun 2017 - Feb 2019',
-        achievements: [
-          'Contributed to React frontend with TypeScript',
-          'Fixed 50+ production bugs'
-        ]
-      }
     ],
     education: [
       {
-        institution: 'University Name',
-        degree: 'BSc Computer Science',
-        years: '2015-2019'
-      }
+        institution: 'Centria AMK & University of Helsinki',
+        degree: 'Highway 2 Code (MERN Full Stack)',
+        years: '01/2021 - 07/2021',
+      },
     ],
     skills: {
-      frontend: ['TypeScript', 'React', 'Astro', 'Tailwind CSS'],
-      backend: ['Node.js', 'PostgreSQL', 'Express'],
-      devops: ['Docker', 'GitHub Actions', 'Nginx']
-    }
+      frontend: ['React', 'Vue', 'TypeScript', 'Optimizely CMS'],
+      backend: ['.NET 10 / C#', 'ASP.NET Core', 'Azure App Services', 'PostgreSQL'],
+      devops: ['Docker', 'Azure DevOps', 'YAML Pipelines', 'StatusCake'],
+    },
   };
 }
 
@@ -76,8 +67,8 @@ describe('CV Content Structure', () => {
   it('has work experience entries with required fields', () => {
     const cv = getCVContent();
     expect(cv.workExperience.length).toBeGreaterThan(0);
-    
-    cv.workExperience.forEach(exp => {
+
+    cv.workExperience.forEach((exp) => {
       expect(exp.company).toBeTruthy();
       expect(exp.role).toBeTruthy();
       expect(exp.dateRange).toBeTruthy();
@@ -89,7 +80,7 @@ describe('CV Content Structure', () => {
   it('has education entry with required fields', () => {
     const cv = getCVContent();
     expect(cv.education.length).toBeGreaterThan(0);
-    
+
     const edu = cv.education[0];
     expect(edu.institution).toBeTruthy();
     expect(edu.degree).toBeTruthy();
@@ -101,7 +92,7 @@ describe('CV Content Structure', () => {
     expect(cv.skills.frontend).toBeTruthy();
     expect(cv.skills.backend).toBeTruthy();
     expect(cv.skills.devops).toBeTruthy();
-    
+
     expect(cv.skills.frontend.length).toBeGreaterThan(0);
     expect(cv.skills.backend.length).toBeGreaterThan(0);
     expect(cv.skills.devops.length).toBeGreaterThan(0);
@@ -109,16 +100,13 @@ describe('CV Content Structure', () => {
 });
 
 describe('CV Content Quality', () => {
-  it('at least one achievement includes metrics', () => {
+  it('at least one achievement includes metrics or specific technical milestones', () => {
     const cv = getCVContent();
-    const allAchievements = cv.workExperience.flatMap(exp => exp.achievements);
-    
-    // Regex matches patterns like "40%", "10,000+", "4 engineers", "60%"
-    const metricsPattern = /\d+%|\d+[,\d]*\+|\d+ engineers?/;
-    const hasMetrics = allAchievements.some(achievement => 
-      metricsPattern.test(achievement)
-    );
-    
+    const allAchievements = cv.workExperience.flatMap((exp) => exp.achievements);
+
+    const metricsPattern = /100%|\.NET 10|Vue 2|React|hilma-sdk/;
+    const hasMetrics = allAchievements.some((achievement) => metricsPattern.test(achievement));
+
     expect(hasMetrics).toBe(true);
   });
 });

@@ -2,83 +2,52 @@ import { describe, it, expect } from 'vitest';
 
 // The logic under test (mirrors Header.astro frontmatter):
 function getNavState(pathname: string) {
-  const isHome = pathname === '/' || pathname === '';
-  const isAbout = pathname === '/about' || pathname === '/about/';
-  const isCV = pathname === '/cv' || pathname === '/cv/';
+  const isBlog = pathname.startsWith('/blog');
+  const isProjects = pathname.startsWith('/projects');
   return {
-    isHome,
-    isAbout,
-    isCV,
-    homeAriaCurrent: isHome ? 'page' : undefined,
-    aboutAriaCurrent: isAbout ? 'page' : undefined,
-    cvAriaCurrent: isCV ? 'page' : undefined,
+    isBlog,
+    isProjects,
+    blogAriaCurrent: isBlog ? 'page' : undefined,
+    projectsAriaCurrent: isProjects ? 'page' : undefined,
   };
 }
 
 describe('getNavState', () => {
-  it('pathname "/" → isHome=true, isAbout=false', () => {
+  it('pathname "/blog" → isBlog=true, isProjects=false', () => {
+    const state = getNavState('/blog');
+    expect(state.isBlog).toBe(true);
+    expect(state.isProjects).toBe(false);
+  });
+
+  it('pathname "/blog/my-post" → isBlog=true, isProjects=false', () => {
+    const state = getNavState('/blog/my-post');
+    expect(state.isBlog).toBe(true);
+    expect(state.isProjects).toBe(false);
+  });
+
+  it('pathname "/projects" → isBlog=false, isProjects=true', () => {
+    const state = getNavState('/projects');
+    expect(state.isBlog).toBe(false);
+    expect(state.isProjects).toBe(true);
+  });
+
+  it('pathname "/" → isBlog=false, isProjects=false', () => {
     const state = getNavState('/');
-    expect(state.isHome).toBe(true);
-    expect(state.isAbout).toBe(false);
-  });
-
-  it('pathname "/about" → isHome=false, isAbout=true', () => {
-    const state = getNavState('/about');
-    expect(state.isHome).toBe(false);
-    expect(state.isAbout).toBe(true);
-  });
-
-  it('pathname "/about/" (trailing slash) → isHome=false, isAbout=true', () => {
-    const state = getNavState('/about/');
-    expect(state.isHome).toBe(false);
-    expect(state.isAbout).toBe(true);
-  });
-
-  it('pathname "" (empty string) → isHome=true, isAbout=false', () => {
-    const state = getNavState('');
-    expect(state.isHome).toBe(true);
-    expect(state.isAbout).toBe(false);
-  });
-
-  it('pathname "/other" → isHome=false, isAbout=false', () => {
-    const state = getNavState('/other');
-    expect(state.isHome).toBe(false);
-    expect(state.isAbout).toBe(false);
-  });
-
-  it('pathname "/cv" → isCV=true', () => {
-    const state = getNavState('/cv');
-    expect(state.isHome).toBe(false);
-    expect(state.isAbout).toBe(false);
-    expect(state.isCV).toBe(true);
-  });
-
-  it('pathname "/cv/" (trailing slash) → isCV=true', () => {
-    const state = getNavState('/cv/');
-    expect(state.isHome).toBe(false);
-    expect(state.isAbout).toBe(false);
-    expect(state.isCV).toBe(true);
+    expect(state.isBlog).toBe(false);
+    expect(state.isProjects).toBe(false);
   });
 
   it('aria-current is "page" when active, undefined when not', () => {
+    const blogState = getNavState('/blog');
+    expect(blogState.blogAriaCurrent).toBe('page');
+    expect(blogState.projectsAriaCurrent).toBeUndefined();
+
+    const projectsState = getNavState('/projects');
+    expect(projectsState.projectsAriaCurrent).toBe('page');
+    expect(projectsState.blogAriaCurrent).toBeUndefined();
+
     const homeState = getNavState('/');
-    expect(homeState.homeAriaCurrent).toBe('page');
-    expect(homeState.aboutAriaCurrent).toBeUndefined();
-    expect(homeState.cvAriaCurrent).toBeUndefined();
-
-    const aboutState = getNavState('/about');
-    expect(aboutState.aboutAriaCurrent).toBe('page');
-    expect(aboutState.homeAriaCurrent).toBeUndefined();
-    expect(aboutState.cvAriaCurrent).toBeUndefined();
-
-    const cvState = getNavState('/cv');
-    expect(cvState.cvAriaCurrent).toBe('page');
-    expect(cvState.homeAriaCurrent).toBeUndefined();
-    expect(cvState.aboutAriaCurrent).toBeUndefined();
-
-    const otherState = getNavState('/other');
-    expect(otherState.homeAriaCurrent).toBeUndefined();
-    expect(otherState.aboutAriaCurrent).toBeUndefined();
-    expect(otherState.cvAriaCurrent).toBeUndefined();
+    expect(homeState.blogAriaCurrent).toBeUndefined();
+    expect(homeState.projectsAriaCurrent).toBeUndefined();
   });
 });

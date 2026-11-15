@@ -9,24 +9,19 @@ interface Highlight {
 function getHighlights(): Highlight[] {
   return [
     {
-      title: 'Full-Stack Engineering',
+      title: 'Full-Stack Software Engineering',
       description:
-        'Five years across TypeScript, Node.js, React, and PostgreSQL — building production systems end to end.',
+        'Building production systems end-to-end with language-agnostic problem solving, performance tuning, and clean architecture.',
     },
     {
-      title: 'API Design',
+      title: 'API & System Architecture',
       description:
-        'REST and GraphQL APIs designed for clarity, versioned for longevity, and documented for the next developer.',
+        'REST, GraphQL, and microservice architectures designed for clarity, versioned for longevity, and built to scale.',
     },
     {
-      title: 'Developer Experience',
+      title: 'Developer Experience & DevOps',
       description:
-        'CI/CD pipelines, Docker containerisation, and tooling that make shipping fast and safe.',
-    },
-    {
-      title: 'Oslo-Based',
-      description:
-        'Working remotely across European time zones from Oslo, Norway. Fluent in English, Norwegian.',
+        'CI/CD pipelines, Docker containerisation, and automated tooling that make shipping fast and reliable.',
     },
   ];
 }

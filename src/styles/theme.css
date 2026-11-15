@@ -1,32 +1,33 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  /* Nordic monochrome palette - DSGN-01 */
-  /* Contrast ratios calculated against white background (#FFFFFF) */
+  /* Nordic monochrome palette with electric purple accent */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gray-100: #f5f5f5;  /* 1.1:1 - decorative only */
-  --color-gray-200: #e5e5e5;  /* 1.5:1 - decorative only */
-  --color-gray-300: #d4d4d4;  /* 2.0:1 - decorative only */
-  --color-gray-400: #a3a3a3;  /* 3.0:1 - decorative only */
-  --color-gray-500: #737373;  /* 4.6:1 - large text only (18pt+/14pt+ bold) */
-  --color-gray-600: #525252;  /* 7.5:1 - body text OK (meets WCAG AAA) */
-  --color-gray-700: #404040;  /* 9.7:1 - body text OK (meets WCAG AAA) */
-  --color-gray-800: #262626;  /* 13.3:1 - body text OK (meets WCAG AAA) */
-  --color-gray-900: #171717;  /* 16.1:1 - body text OK (meets WCAG AAA) */
-  
-  /* Design system tokens - DSGN-01 */
-  --color-secondary: #595959;  /* Muted text, captions, nav links (WCAG AAA 7.5:1 contrast) */
-  --color-border: #E5E5E5;     /* Dividers, card borders, section separators */
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
 
-  /* Typography - DSGN-02 */
-  /* Font variables populated by Astro Fonts API */
+  /* Purple Accent Tokens (used sparingly for high impact) */
+  --color-purple-accent: #7c3aed; /* Light mode electric purple */
+  --color-purple-accent-light: #a78bfa; /* Dark mode vibrant violet */
+  --color-purple-bg: rgba(124, 58, 237, 0.08);
+
+  /* Design system tokens */
+  --color-secondary: #595959;
+  --color-border: #e5e5e5;
+
+  /* Typography */
   --font-display: var(--font-jetbrains-mono);
   --font-body: var(--font-ibm-plex-sans);
 
-  /* 8px spacing grid - DSGN-03 */
-  /* Override Tailwind default 4px-based scale with 8px grid */
-  /* spacing-N = N × 8px (e.g., spacing-4 = 32px, not 16px) */
+  /* 8px spacing grid */
   --spacing-1: 8px;
   --spacing-2: 16px;
   --spacing-3: 24px;
@@ -38,8 +39,7 @@
   --spacing-12: 96px;
   --spacing-16: 128px;
 
-  /* Sharp corners - DSGN-04 */
-  /* All border-radius utilities output 0px - no rounded corners */
+  /* Sharp corners */
   --radius-none: 0px;
   --radius-sm: 0px;
   --radius: 0px;
@@ -50,8 +50,7 @@
   --radius-3xl: 0px;
   --radius-full: 0px;
 
-  /* Minimal shadows - DSGN-06 */
-  /* Crisp borders take precedence; shadows used sparingly */
+  /* Minimal shadows */
   --shadow-sm: none;
   --shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.1);

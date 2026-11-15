@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+import SearchAndFilter from '../components/ui/SearchAndFilter.astro';
+import { getProjects } from '../lib/cms';
+
+const projects = await getProjects();
+const uniqueTags = Array.from(new Set(projects.flatMap((p) => p.tags || []))).sort();
+---
+
+<BaseLayout
+  title="Projects | Jake Reddy"
+  description="Showcase of hosted subdomains, open source repos, and homeserver projects built by Jake Reddy."
+>
+  <div class="max-w-[1200px] mx-auto px-4 py-12 md:px-8">
+    <header class="mb-12 pb-8 border-b border-[#E5E5E5] dark:border-[#333333]">
+      <p
+        class="font-display text-xs font-bold text-[#525252] dark:text-[#A3A3A3] uppercase tracking-[2px] mb-2"
+      >
+        DIRECTORY
+      </p>
+      <h1
+        class="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight mb-4"
+      >
+        PROJECTS
+      </h1>
+      <p class="font-body text-base md:text-lg text-[#525252] dark:text-[#A3A3A3] max-w-2xl">
+        A collection of active subdomains, self-hosted homeserver configurations, web experiments,
+        and open source repositories.
+      </p>
+    </header>
+
+    {
+      projects.length > 0 ? (
+        <>
+          <SearchAndFilter
+            placeholder="Search projects by title, description, or technology..."
+            tags={uniqueTags}
+            totalCount={projects.length}
+            targetSelector=".project-card"
+          />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="border border-dashed border-[#E5E5E5] dark:border-[#262626] rounded-lg p-12 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-[#737373] dark:text-[#A3A3A3]">
+            No projects published yet
+          </p>
+          <p class="font-body text-sm text-[#595959] dark:text-[#A3A3A3] mt-2">
+            Projects will appear here once published in Basecamp CMS.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

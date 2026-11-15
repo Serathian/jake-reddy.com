@@ -1,5 +1,4 @@
 ---
-import { Font } from 'astro:assets';
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -7,25 +6,59 @@ import Footer from '../components/layout/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogType?: 'website' | 'article';
+  publishedTime?: string;
+  canonicalPath?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogType = 'website', publishedTime, canonicalPath } = Astro.props;
+
+const siteOrigin = Astro.site?.toString() || 'https://jake-reddy.com';
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, siteOrigin).toString();
 ---
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
     {description && <meta name="description" content={description} />}
+    <meta property="og:site_name" content="Jake Reddy" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    {
+      ogType === 'article' && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )
+    }
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
     <title>{title}</title>
-    
-    <!-- Preload custom fonts - DSGN-02 -->
-    <Font cssVariable="--font-jetbrains-mono" preload />
-    <Font cssVariable="--font-ibm-plex-sans" preload />
+
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (
+        savedTheme === 'dark' ||
+        (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
-  <body class="min-h-screen bg-white text-black flex flex-col pt-[72px]">
+  <body
+    class="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col pt-[64px] transition-colors duration-200"
+  >
     <Header />
-    <slot />
+    <main class="flex-grow">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

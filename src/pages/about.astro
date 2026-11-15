@@ -1,24 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="About | Jake Reddy" description="Five years building full-stack products. Based in Oslo, Norway.">
-  <main class="max-w-[1200px] mx-auto px-4 py-10 md:px-8 md:py-16 lg:px-12 lg:py-20">
 
+<BaseLayout
+  title="About | Jake Reddy"
+  description="Full-Stack Software Engineer. Language-agnostic, fundamentals-driven engineering."
+>
+  <div class="max-w-[1200px] mx-auto px-4 py-10 md:px-8 md:py-16 lg:px-12 lg:py-20">
     <h1 class="font-display text-4xl font-bold mb-10 md:text-5xl">About</h1>
 
     <!-- Section 1: Background -->
     <section class="mb-10 md:mb-14">
       <h2 class="font-display text-2xl font-semibold mb-4">Background</h2>
-      <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
-        Five years of full-stack development have taken me from startup MVPs to production systems handling thousands of daily users. I work across the entire stack — designing schemas, building APIs, and shipping interfaces — with TypeScript as my primary language and PostgreSQL as my go-to database. I prefer small, focused teams where ownership is clear and quality is non-negotiable.
+      <p class="font-body text-base text-[#595959] dark:text-[#A3A3A3] leading-relaxed max-w-prose">
+        I am a Full-Stack Software Engineer with experience spanning distributed systems, API
+        backends, and frontend web applications. I work across the entire software lifecycle — from
+        designing database schemas and system architecture to shipping responsive user interfaces. I
+        thrive in environments with clear ownership and non-negotiable quality standards.
       </p>
     </section>
 
     <!-- Section 2: Philosophy -->
-    <section class="border-t border-[#E5E5E5] pt-8 mb-10 md:mb-14">
+    <section class="border-t border-[#E5E5E5] dark:border-[#333333] pt-8 mb-10 md:mb-14">
       <h2 class="font-display text-2xl font-semibold mb-4">Philosophy</h2>
-      <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
-        Software should be as simple as the problem allows and no simpler. I value legibility over cleverness, boring technology over novelty for its own sake, and a working system over a perfect one that ships late. Good code is code the next developer can read, reason about, and change without fear.
+      <p class="font-body text-base text-[#595959] dark:text-[#A3A3A3] leading-relaxed max-w-prose">
+        To me, programming languages and frameworks are tools — specific syntax is secondary to
+        underlying computer science fundamentals, system design, and problem-solving. Software
+        should be as simple as the problem allows and no simpler. I value legibility, reliable
+        engineering, and building maintainable systems that outlast framework trends.
       </p>
     </section>
 
@@ -26,9 +35,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="border-t border-[#E5E5E5] pt-8">
       <h2 class="font-display text-2xl font-semibold mb-4">Nordic Life</h2>
       <p class="font-body text-base text-[#595959] leading-relaxed max-w-prose">
-        I am based in Oslo, Norway, and have lived in the Nordic countries for the past four years. The directness, the long winters that demand indoor focus, and the cultural respect for craftsmanship all align with how I prefer to work. I am available across European time zones and collaborate regularly with distributed teams in the UK, Germany, and Sweden.
+        I am based in Oslo, Norway, and have lived in the Nordic countries for the past four years.
+        The directness, the long winters that demand indoor focus, and the cultural respect for
+        craftsmanship all align with how I prefer to work. I am available across European time zones
+        and collaborate regularly with distributed teams in the UK, Germany, and Sweden.
       </p>
     </section>
-
-  </main>
+  </div>
 </BaseLayout>

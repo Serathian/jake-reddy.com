@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jake-reddy.com/sitemap.xml

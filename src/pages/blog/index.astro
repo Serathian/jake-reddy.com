@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/ui/BlogCard.astro';
+import SearchAndFilter from '../../components/ui/SearchAndFilter.astro';
+import { getBlogPosts } from '../../lib/cms';
+
+const posts = await getBlogPosts();
+const uniqueTags = Array.from(new Set(posts.flatMap((p) => p.tags || []))).sort();
+---
+
+<BaseLayout
+  title="Blog | Jake Reddy"
+  description="Writing on software engineering, web design, system architecture, and outdoor adventures."
+>
+  <div class="max-w-[1200px] mx-auto px-4 py-12 md:px-8">
+    <header class="mb-12 pb-8 border-b border-[#E5E5E5] dark:border-[#333333]">
+      <p
+        class="font-display text-xs font-bold text-[#525252] dark:text-[#A3A3A3] uppercase tracking-[2px] mb-2"
+      >
+        ARTICLES & WRITING
+      </p>
+      <h1
+        class="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight mb-4"
+      >
+        BLOG
+      </h1>
+      <p class="font-body text-base md:text-lg text-[#525252] dark:text-[#A3A3A3] max-w-2xl">
+        Thoughts on web development, system architecture, UI design craft, and building software
+        that lasts.
+      </p>
+    </header>
+
+    {
+      posts.length > 0 ? (
+        <>
+          <SearchAndFilter
+            placeholder="Search articles by title, topic, or tag..."
+            tags={uniqueTags}
+            totalCount={posts.length}
+            targetSelector=".blog-card"
+          />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {posts.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="border border-dashed border-[#E5E5E5] dark:border-[#262626] rounded-lg p-12 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-[#737373] dark:text-[#A3A3A3]">
+            No articles published yet
+          </p>
+          <p class="font-body text-sm text-[#595959] dark:text-[#A3A3A3] mt-2">
+            Articles will appear here once published in Basecamp CMS.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

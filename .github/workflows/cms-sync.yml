@@ -1,0 +1,83 @@
+name: Sync Static Content from Basecamp CMS
+
+on:
+  schedule:
+    # Rebuild daily at 04:00 UTC if Basecamp CMS is online
+    - cron: '0 4 * * *'
+  repository_dispatch:
+    # Future Payload CMS afterChange hook target
+    types: [cms-content-updated]
+  workflow_dispatch:
+
+concurrency:
+  group: jake-reddy-cms-sync
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: serathian/jake-reddy.com
+  CMS_URL: ${{ vars.CMS_URL || 'https://basecamp.jake-reddy.com' }}
+
+jobs:
+  check-cms:
+    name: Check Basecamp CMS Availability
+    runs-on: ubuntu-latest
+    outputs:
+      cms_online: ${{ steps.probe.outputs.cms_online }}
+    steps:
+      - name: Probe CMS API endpoints
+        id: probe
+        run: |
+          echo "Probing ${CMS_URL}/api ..."
+          if curl -sf --max-time 15 "${CMS_URL}/api/jr_projects?limit=1" > /dev/null && \
+             curl -sf --max-time 15 "${CMS_URL}/api/jr_posts?limit=1" > /dev/null; then
+            echo "cms_online=true" >> "$GITHUB_OUTPUT"
+            echo "Basecamp CMS is online."
+          else
+            echo "cms_online=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Basecamp CMS at ${CMS_URL} is unreachable or returned an error. Skipping static rebuild to preserve the current production image."
+          fi
+
+  rebuild-static-image:
+    name: Rebuild & Push Static Image
+    needs: check-cms
+    if: needs.check-cms.outputs.cms_online == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push updated static image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:cms-${{ github.run_number }}
+          build-args: |
+            CMS_URL=${{ env.CMS_URL }}
+            CMS_REQUIRE_ONLINE=true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Trigger Watchtower update
+        if: ${{ secrets.WATCHTOWER_TOKEN != '' }}
+        run: |
+          curl -sf -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
+            https://watchtower.jake-reddy.com/v1/update || \
+            echo "::warning::Watchtower webhook call failed; periodic polling will pull :latest on schedule."

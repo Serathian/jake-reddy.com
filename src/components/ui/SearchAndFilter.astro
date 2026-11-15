@@ -1,0 +1,251 @@
+---
+interface Props {
+  placeholder: string;
+  tags: string[];
+  totalCount: number;
+  targetSelector: string;
+}
+
+const { placeholder, tags, totalCount, targetSelector } = Astro.props;
+---
+
+<div class="search-filter-container mb-8 space-y-4" data-target={targetSelector}>
+  <!-- Search Input Bar -->
+  <div class="relative">
+    <input
+      type="text"
+      class="filter-search-input w-full bg-white dark:bg-[#181818] border border-[#E5E5E5] dark:border-[#333333] px-4 py-3 pl-10 text-sm font-body text-black dark:text-white placeholder-[#888888] focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+      placeholder={placeholder}
+      aria-label="Search"
+    />
+    <svg
+      class="w-4 h-4 absolute left-3.5 top-3.5 text-[#888888]"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+    <button
+      type="button"
+      class="filter-clear-btn hidden absolute right-3 top-3 text-xs font-display font-bold uppercase tracking-wider text-[#888888] hover:text-black dark:hover:text-white transition-colors"
+    >
+      CLEAR
+    </button>
+  </div>
+
+  <!-- Tag Facet Pills & Counter -->
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-wrap items-center gap-2 filter-tag-group">
+      <button
+        type="button"
+        data-tag=""
+        class="filter-tag-pill font-display text-xs font-semibold px-3 py-1.5 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black transition-colors flex items-center gap-1.5 cursor-pointer"
+      >
+        <span
+          class="pill-dot w-1.5 h-1.5 bg-[#7c3aed] dark:bg-[#a78bfa] inline-block transition-colors"
+        ></span>
+        ALL
+      </button>
+      {
+        tags.map((tag) => (
+          <button
+            type="button"
+            data-tag={tag.toLowerCase()}
+            class="filter-tag-pill font-display text-xs font-semibold px-3 py-1.5 border border-[#E5E5E5] dark:border-[#333333] bg-white dark:bg-[#181818] text-[#525252] dark:text-[#A3A3A3] hover:border-black dark:hover:border-white transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <span class="pill-dot w-1.5 h-1.5 bg-[#D4D4D4] dark:bg-[#404040] inline-block transition-colors" />
+            {tag.toUpperCase()}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="font-display text-xs font-medium text-[#737373] dark:text-[#A3A3A3]">
+      Showing <span class="filter-count-visible font-bold text-black dark:text-white"
+        >{totalCount}</span
+      > of {totalCount}
+    </div>
+  </div>
+</div>
+
+<!-- Empty state message template -->
+<div
+  class="filter-empty-state hidden text-center py-16 border border-dashed border-[#E5E5E5] dark:border-[#333333] p-8"
+>
+  <p
+    class="font-display text-lg font-bold uppercase tracking-tight text-black dark:text-white mb-2"
+  >
+    No matches found
+  </p>
+  <p class="font-body text-sm text-[#737373] dark:text-[#A3A3A3]">
+    Try broadening your search query or selecting a different tag filter.
+  </p>
+</div>
+
+<script>
+  function setupSearchFilter() {
+    const containers = document.querySelectorAll('.search-filter-container');
+
+    containers.forEach((container) => {
+      const targetSelector = container.getAttribute('data-target');
+      if (!targetSelector) return;
+
+      const input = container.querySelector('.filter-search-input') as HTMLInputElement;
+      const clearBtn = container.querySelector('.filter-clear-btn') as HTMLButtonElement;
+      const tagPills = container.querySelectorAll('.filter-tag-pill');
+      const visibleCountEl = container.querySelector('.filter-count-visible');
+      const emptyState = container.parentElement?.querySelector('.filter-empty-state');
+      const cards = document.querySelectorAll(targetSelector);
+
+      let currentQuery = '';
+      let currentTag = '';
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('q')) {
+        currentQuery = urlParams.get('q') || '';
+        if (input) input.value = currentQuery;
+      }
+      if (urlParams.has('tag')) {
+        currentTag = (urlParams.get('tag') || '').toLowerCase();
+      }
+
+      function updateURL() {
+        const params = new URLSearchParams();
+        if (currentQuery) params.set('q', currentQuery);
+        if (currentTag) params.set('tag', currentTag);
+
+        const newUrl = params.toString()
+          ? `${window.location.pathname}?${params.toString()}`
+          : window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+
+      function filterItems() {
+        let visibleCount = 0;
+        const query = currentQuery.toLowerCase().trim();
+
+        cards.forEach((card) => {
+          const searchable = (card.getAttribute('data-searchable') || '').toLowerCase();
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase().split(',');
+
+          const matchesQuery = !query || searchable.includes(query);
+          const matchesTag = !currentTag || tags.includes(currentTag);
+
+          if (matchesQuery && matchesTag) {
+            (card as HTMLElement).style.display = '';
+            visibleCount++;
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+
+        // Update active tag pill styling cleanly
+        tagPills.forEach((pill) => {
+          const pillTag = pill.getAttribute('data-tag') || '';
+          const dot = pill.querySelector('.pill-dot');
+
+          if (pillTag === currentTag) {
+            pill.classList.add(
+              'bg-black',
+              'dark:bg-white',
+              'text-white',
+              'dark:text-black',
+              'border-black',
+              'dark:border-white'
+            );
+            pill.classList.remove(
+              'bg-white',
+              'dark:bg-[#181818]',
+              'text-[#525252]',
+              'dark:text-[#A3A3A3]',
+              'border-[#E5E5E5]',
+              'dark:border-[#333333]'
+            );
+            if (dot) {
+              dot.classList.remove('bg-[#D4D4D4]', 'dark:bg-[#404040]');
+              dot.classList.add('bg-[#7c3aed]', 'dark:bg-[#a78bfa]');
+            }
+          } else {
+            pill.classList.remove(
+              'bg-black',
+              'dark:bg-white',
+              'text-white',
+              'dark:text-black',
+              'border-black',
+              'dark:border-white'
+            );
+            pill.classList.add(
+              'bg-white',
+              'dark:bg-[#181818]',
+              'text-[#525252]',
+              'dark:text-[#A3A3A3]',
+              'border-[#E5E5E5]',
+              'dark:border-[#333333]'
+            );
+            if (dot) {
+              dot.classList.remove('bg-[#7c3aed]', 'dark:bg-[#a78bfa]');
+              dot.classList.add('bg-[#D4D4D4]', 'dark:bg-[#404040]');
+            }
+          }
+        });
+
+        if (clearBtn) {
+          if (currentQuery || currentTag) {
+            clearBtn.classList.remove('hidden');
+          } else {
+            clearBtn.classList.add('hidden');
+          }
+        }
+
+        if (visibleCountEl) {
+          visibleCountEl.textContent = String(visibleCount);
+        }
+
+        if (emptyState) {
+          if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+          } else {
+            emptyState.classList.add('hidden');
+          }
+        }
+
+        updateURL();
+      }
+
+      input?.addEventListener('input', (e) => {
+        currentQuery = (e.target as HTMLInputElement).value;
+        filterItems();
+      });
+
+      tagPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const clickedTag = pill.getAttribute('data-tag') || '';
+          // If clicking an already selected tag, untoggle back to ALL
+          if (clickedTag === currentTag) {
+            currentTag = '';
+          } else {
+            currentTag = clickedTag;
+          }
+          filterItems();
+        });
+      });
+
+      clearBtn?.addEventListener('click', () => {
+        currentQuery = '';
+        currentTag = '';
+        if (input) input.value = '';
+        filterItems();
+      });
+
+      filterItems();
+    });
+  }
+
+  setupSearchFilter();
+  document.addEventListener('astro:after-swap', setupSearchFilter);
+</script>

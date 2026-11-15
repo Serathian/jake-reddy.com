@@ -13,6 +13,10 @@ RUN npm install
 
 # Stage 4: Build the site
 FROM build-deps AS build
+ARG CMS_URL=https://basecamp.jake-reddy.com
+ARG CMS_REQUIRE_ONLINE=false
+ENV CMS_URL=$CMS_URL
+ENV CMS_REQUIRE_ONLINE=$CMS_REQUIRE_ONLINE
 COPY . .
 RUN npm run build
 
