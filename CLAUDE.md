@@ -20,3 +20,19 @@ Follow the design system exactly. Do not invent spacing, colors, border widths, 
 - **Cursor:** Always `cursor-pointer` on interactive elements.
 - **Motion:** Transitions 200–300ms. Always respect `prefers-reduced-motion`.
 - **Anti-patterns:** No rounded corners, no gradients, no emojis as icons, no heavy shadows, no centered body text.
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked centrally in GitHub Issues (`Serathian/website-stack` via `gh --repo Serathian/website-stack`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Uses the default five-role triage label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout (`GLOSSARY.md` + `docs/adr/` at the repo root). See `docs/agents/domain.md`.
